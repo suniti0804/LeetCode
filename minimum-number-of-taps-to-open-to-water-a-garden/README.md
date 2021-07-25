@@ -1,3 +1,4 @@
+[Discussion Post](https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/discuss/1303132/C%2B%2B-oror-Easy-Understanding-Solution)  
 <h2>1326. Minimum Number of Taps to Open to Water a Garden</h2><h3>Hard</h3><hr><div><p>There is a one-dimensional garden on the x-axis. The garden starts at the point <code>0</code> and ends at the point <code>n</code>. (i.e The length of the garden is <code>n</code>).</p>
 
 <p>There are&nbsp;<code>n + 1</code> taps located&nbsp;at points <code>[0, 1, ..., n]</code> in the garden.</p>
