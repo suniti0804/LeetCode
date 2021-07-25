@@ -1,4 +1,4 @@
-[Discussion Post (created on 25/6/2021 at 12:12)](https://leetcode.com/problems/non-overlapping-intervals/discuss/1361244/C%2B%2B-oror-Easy-to-understand-oror-Greedy)  
+[Discussion Post](https://leetcode.com/problems/non-overlapping-intervals/discuss/1361244/C%2B%2B-oror-Easy-to-understand-oror-Greedy)  
 <h2>435. Non-overlapping Intervals</h2><h3>Medium</h3><hr><div><p>Given an array of intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping</em>.</p>
 
 <p>&nbsp;</p>
