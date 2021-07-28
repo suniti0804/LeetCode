@@ -3,8 +3,8 @@ public:
 
     void dfs(vector<vector<int>>& isConnected, vector<vector<int>>& visited, int u, int v)
     {
-        if(u < 0 || u > isConnected.size() || v < 0 || v > isConnected.size()) 
-            return ;
+        //if(u < 0 || u > isConnected.size() || v < 0 || v > isConnected.size()) 
+           // return ;
         visited[u][v] = 1;
         visited[v][u] = 1;
         for(int i = 0; i < isConnected[0].size(); i++)
