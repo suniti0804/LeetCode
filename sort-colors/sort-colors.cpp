@@ -26,10 +26,7 @@ public:
             nums[i++] = 2;   */
         
         int n = nums.size();
-        int lo = 0;
-        int mid = 0;
-        int hi = n - 1;
-        
+        int lo = 0, mid = 0, hi = n - 1;
         while(mid <= hi)
         {
             if(nums[mid] == 0)
@@ -39,5 +36,6 @@ public:
             else
                 swap(nums[mid], nums[hi--]);
         }
+        
     }
 };
