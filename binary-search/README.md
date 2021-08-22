@@ -1,3 +1,4 @@
+[Discussion Post (created on 22/7/2021 at 21:21)](https://leetcode.com/problems/binary-search/discuss/1419702/C%2B%2B-oror-Binary-Search)  
 <h2>704. Binary Search</h2><h3>Easy</h3><hr><div><p>Given an array of integers <code>nums</code> which is sorted in ascending order, and an integer <code>target</code>, write a function to search <code>target</code> in <code>nums</code>. If <code>target</code> exists, then return its index. Otherwise, return <code>-1</code>.</p>
 
 <p>You must write an algorithm with <code>O(log n)</code> runtime complexity.</p>
