@@ -10,11 +10,11 @@ public:
         {
             if(mp.find(target - nums[i]) != mp.end())
             {
-                res.push_back(mp[target - nums[i]]);
                 res.push_back(i);
+                res.push_back(mp[target - nums[i]]);
                 return res;
             }
-                
+            
             mp.insert({nums[i], i});
         }
         
