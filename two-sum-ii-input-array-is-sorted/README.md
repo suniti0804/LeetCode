@@ -1,3 +1,4 @@
+[Discussion Post (created on 24/7/2021 at 19:5)](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/1423421/C%2B%2B-oror-Two-Pointer)  
 <h2>167. Two Sum II - Input array is sorted</h2><h3>Easy</h3><hr><div><p>Given an array of integers <code>numbers</code> that is already <strong><em>sorted in non-decreasing order</em></strong>, find two numbers such that they add up to a specific <code>target</code> number.</p>
 
 <p>Return<em> the indices of the two numbers (<strong>1-indexed</strong>) as an integer array </em><code>answer</code><em> of size </em><code>2</code><em>, where </em><code>1 &lt;= answer[0] &lt; answer[1] &lt;= numbers.length</code>.</p>
