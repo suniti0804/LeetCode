@@ -37,7 +37,7 @@ public:
                 ans = ans * x;
 
             // y must be even now
-            y = y >> 1; // y = n/2
+            y /= 2; // y = n/2
             x = x * x; // Change x to x^2
         }
         return n < 0 ? 1/ans : ans;
