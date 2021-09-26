@@ -3,25 +3,26 @@ public:
     string reverseWords(string s) 
     {
         string res = "";
-        string temp;
-        
-        for(int i = 0; i < s.size(); i++)
+        int i = 0;
+        string temp = "";
+        while(i<s.size())
         {
-            if(s[i] != ' ')
+            if(s[i]!=' ')
                 temp += s[i];
-            
             else
             {
-                reverse(temp.begin(), temp.end());
-                res += temp + ' ';
+                for(int i=temp.size()-1; i >= 0; i--)
+                    res += temp[i];
+                
+                res += " ";
                 temp = "";
             }
+            i++;
         }
         
-        reverse(temp.begin(), temp.end());
-        res += temp ;
+        for(int i=temp.size()-1; i >= 0; i--)
+            res += temp[i];
         
         return res;
-        
     }
 };
