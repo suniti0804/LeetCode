@@ -38,24 +38,26 @@ public:
         temp -> next = temp -> next -> next;
         return head;   */
        
-         
-       
         ListNode* temp = new ListNode(-1);
-        temp -> next = head;
-        ListNode* slow = temp;
-        ListNode* fast = temp;
+        temp->next=head;
         
-        while(n--)
-            fast = fast -> next;
+        ListNode*slow=temp;
+        ListNode*fast=temp;
         
-        while(fast != NULL && fast -> next != NULL)
-        {
-            slow = slow -> next;
-            fast = fast -> next;
-        }
+        while(fast!=NULL&&fast->next!=NULL&&n--)
+            fast=fast->next;
         
-        slow -> next = slow -> next -> next;
+        if(fast==NULL)
+            return head;
         
-        return temp -> next;
+         while(fast!=NULL&&fast->next!=NULL)
+         {
+             slow=slow->next;
+             fast=fast->next;
+         }
+        
+        slow->next=slow->next->next;
+        return temp->next;
+        
     }
 };
