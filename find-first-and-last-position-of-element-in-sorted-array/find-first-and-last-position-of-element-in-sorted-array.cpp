@@ -1,38 +1,32 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) 
+    
+    int lower_bound(vector<int> nums, int k)
     {
         int s=0;
-        int e=nums.size();
-        
-        int l,r;
-        
-        while(s<e)
+        int e=nums.size()-1;
+        while(s<=e)
         {
             int mid=s+(e-s)/2;
-            if(nums[mid]>=target)
-                e=mid;
-            else
+            if(nums[mid]<k)
                 s=mid+1;
+            else
+                e=mid-1;
+            
         }
         
-        l=s;
-        s=0;
-        e=nums.size();
+        return s;
+    }
+    
+    vector<int> searchRange(vector<int>& nums, int target) 
+    {
+        int l=lower_bound(nums, target);
+        int r=lower_bound(nums, target+1)-1;
         
-        while(s<e)
-        {
-            int mid=s+(e-s)/2;
-            if(nums[mid]>target)
-                e=mid;
-            else
-                s=mid+1;
-        }
-        
-        r=s;
-        if(l==r)
-            return {-1,-1};
+        if (l < nums.size() && nums[l] == target)
+           return {l, r};
         else
-            return {l,r-1};
+           return {-1, -1};
+        
     }
 };
