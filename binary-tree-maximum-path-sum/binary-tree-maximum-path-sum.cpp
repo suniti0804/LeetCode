@@ -21,8 +21,8 @@ public:
         int r = sum(root -> right, res);
         
         int temp = max(max(l, r) + root -> val, root -> val);
-        //int ans = max(temp, l + r + root -> val);
-        res =  max(res, max(temp,l+r+root->val));
+        int ans = max(temp,l+r+root->val);
+        res =  max(res, ans);
 
         return temp;
     }
