@@ -15,9 +15,7 @@ public:
         t[1] = max(nums[0], nums[1]);
         
         for(int i = 2; i < n; i++)
-        {
-            t[i] = max(nums[i] + t[i - 2], t[i-1]);
-        }
+           t[i] = max(nums[i] + t[i - 2], t[i-1]);
         
         return t[n-1];
     }
