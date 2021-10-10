@@ -44,7 +44,7 @@ public:
         ListNode*slow=temp;
         ListNode*fast=temp;
         
-        while(fast!=NULL&&fast->next!=NULL&&n--)
+        while(n--)
             fast=fast->next;
         
         if(fast==NULL)
