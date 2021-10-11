@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-   /* int targetSum(vector<int>& nums, int i, int target)
+   /*int targetSum(vector<int>& nums, int i, int target)
     {
         if(target == 0 && i == nums.size())
             return 1;
@@ -53,15 +53,15 @@ public:
     
     int findTargetSumWays(vector<int>& nums, int target)
      {
-         target=abs(target);
+         target = abs(target);
          int n = nums.size();
          int sum = 0;
          for(int i = 0; i < n; i++)
              sum += nums[i];
          
-         int M = (sum + target)/2;
+        int M = (sum + target)/2;
         if(sum < target || (sum + target) % 2 != 0)
             return 0;
          return countSubsets(nums, n, M);
-     }
+     }  
 };
