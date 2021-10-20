@@ -9,7 +9,7 @@
 
 class Solution {
 public:
-    int guessNumber(int n)
+    int guessNumber(int n) 
     {
         int s=1;
         while(s<=n)
