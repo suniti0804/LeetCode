@@ -1,3 +1,4 @@
+[Discussion Post (created on 17/11/2021 at 11:22)](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/discuss/1632307/C%2B%2B-oror-O(N)-Time-and-O(1)-Space)  
 <h2>82. Remove Duplicates from Sorted List II</h2><h3>Medium</h3><hr><div><p>Given the <code>head</code> of a sorted linked list, <em>delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
 
 <p>&nbsp;</p>
