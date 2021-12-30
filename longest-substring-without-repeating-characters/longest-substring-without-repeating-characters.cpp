@@ -1,14 +1,14 @@
 class Solution {
 public:
-    int lengthOfLongestSubstring(string s)
+    int lengthOfLongestSubstring(string s) 
     {
-        if(s.empty())
-            return 0;
-        int res=INT_MIN;
+        int res=0;
         int len=0;
         unordered_map<int, bool> mp;
-        int i = 0, j = 0; 
-        while(i < s.size())
+        
+        int i=0,j=0;
+        
+        while(i<s.size())
         {
             if(mp[s[i]]==false)
             {
@@ -16,14 +16,17 @@ public:
                 len++;
                 i++;
             }
+            
             else
             {
                 mp[s[j]]=false;
-                len--;
                 j++;
+                len--;
             }
-            res = max(res, len);
+            
+            res=max(res, len);
         }
+        
         return res;
     }
 };
