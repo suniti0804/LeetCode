@@ -1,24 +1,18 @@
 class Solution {
 public:
-    //consider first string as prefix and keep on checking for each string.
-    //cut out the portion which is not common
-    
-    string longestCommonPrefix(vector<string>& str) 
+    string longestCommonPrefix(vector<string>& strs) 
     {
-        string res=str[0];
-        for(int i=1; i<str.size(); i++)
+        string res=strs[0];
+        
+        for(int i=1; i<strs.size(); i++)
         {
-            string s=str[i];
+            string s=strs[i];
             if(s=="")
                 return "";
-            int j;
-            for(j=0; j<s.size()&&j<res.size();j++)
-            {
-                if(res[j]!=s[j])
-                    break;
-            }
-            
-            res=res.substr(0,j);
+            int j=0;
+            while(j<s.size()&&j<res.size()&&s[j]==res[j])
+                j++;
+            res=res.substr(0, j);
         }
         return res;
     }
