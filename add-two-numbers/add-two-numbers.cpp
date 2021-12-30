@@ -11,47 +11,30 @@
 class Solution {
 public:
     
-   /* ListNode* reverse(ListNode* list)
-    {
-        ListNode* curr=list;
-        ListNode* prev=NULL;
-        
-        while(curr!=NULL)
-        {
-            curr->next=prev;
-            prev=curr;
-            curr=curr->next;
-        }
-        return prev;
-    } */
-    
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
     {
         ListNode res(0);
         ListNode* temp=&res;
-    
-        int sum=0;
+        
         int carry=0;
         
         while(l1!=NULL||l2!=NULL||carry)
         {
-            int a=(l1!=NULL?l1->val:0);
-            int b=(l2!=NULL?l2->val:0);
+            int a=l1!=NULL?l1->val:0;
+            int b=l2!=NULL?l2->val:0;
             
-            sum=((a+b+carry)%10);
-            carry=(a+b+carry)/10;
+            int sum=a+b+carry;
             
-            temp->next=new ListNode(sum);
+            temp->next=new ListNode(sum%10);
             temp=temp->next;
+            carry=sum/10;
             
             if(l1)
-               l1=l1->next;
+                l1=l1->next;
             if(l2)
-               l2=l2->next;
-            
+                l2=l2->next;
         }
-    
-        return res.next;
         
+        return res.next;
     }
 };
