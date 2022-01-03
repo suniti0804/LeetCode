@@ -1,3 +1,4 @@
+[Discussion Post (created on 3/0/2022 at 17:42)](https://leetcode.com/problems/find-the-town-judge/discuss/1664263/C%2B%2B-oror-Hash-Table-oror-Easy-Implementation)  
 <h2>997. Find the Town Judge</h2><h3>Easy</h3><hr><div><p>In a town, there are <code>n</code> people labeled from <code>1</code> to <code>n</code>. There is a rumor that one of these people is secretly the town judge.</p>
 
 <p>If the town judge exists, then:</p>
