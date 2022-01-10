@@ -18,11 +18,9 @@ public:
                       }
                     else 
                       j++;
-                  
-                }
+                  }
           }
         
         return res;
-        
     }
 };
