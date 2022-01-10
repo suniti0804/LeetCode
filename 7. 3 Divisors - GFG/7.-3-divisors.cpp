@@ -12,7 +12,7 @@ vector<int> threeDivisors(vector<long long> query, int q)
         vector<int> res;
         int n=1000001;
         
-        int isPrime[n+1];
+        int isPrime[n+1]; //addition of bool data type is not valid
         for(int i=0; i<=n; i++)
           isPrime[i]=1;
         
