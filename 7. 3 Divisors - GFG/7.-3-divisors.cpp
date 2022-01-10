@@ -13,6 +13,7 @@ vector<int> threeDivisors(vector<long long> query, int q)
         int n=1000001;
         
         vector<int> isPrime(n+1, 1);
+        
         isPrime[0]=isPrime[1]=0;
         
         for(long long i=2; i*i<n; i++)
