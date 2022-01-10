@@ -26,9 +26,9 @@ class Solution {
                    res=max(res, num);
                    long long last=num%10;
                    if(last==0)
-                     q.push((num*10)+1);
+                     q.push((num*10)+1);  //last+1
                    else if(last==9)
-                     q.push((num*10)+8);
+                     q.push((num*10)+8);  //last-1
                    else
                     {
                         q.push((num*10)+last-1);
