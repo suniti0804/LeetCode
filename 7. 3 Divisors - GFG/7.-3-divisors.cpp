@@ -7,37 +7,35 @@ class Solution
 {
 public:
 
-    vector<int> seive()
+vector<int> threeDivisors(vector<long long> query, int q)
     {
-        int n = 1000000;
-        vector<int>isPrime(n+5,1);
-        isPrime[0] = isPrime[1] = 0;
+        vector<int> res;
+        int n=1000001;
         
-        for(int i=2;i*i<=n;i++)
+        vector<int> isPrime(n+1, 1);
+        for(int i=0; i<=n; i++)
+          isPrime[i]=1;
+        
+        isPrime[0]=isPrime[1]=0;
+        
+        for(long long i=2; i*i<n; i++)
         {
-            if(!isPrime[i])
-                continue;
-            for(int j=2*i;j<=n;j+=i)
-                isPrime[j] = 0;
-            
+            if(isPrime[i]==true)
+            {
+                for(int p=2*i; p<=n; p+=i)
+                  isPrime[p]=false;
+            }
         }
         
-        for(int i=2;i<=n;i++)
-            isPrime[i]+=isPrime[i-1];
-
-        return isPrime;
-    }
-    vector<int> threeDivisors(vector<long long> query, int q)
-    {
-        //long long mx = *max_element(query.begin(),query.end());
-        vector<int>pre = seive();
-        vector<int>ans;
+        for(int i=1; i<=n; i++)
+          isPrime[i]+=isPrime[i-1];
         
-        for(auto x:query)
-            ans.push_back(pre[(int)sqrt(x)]);
-    
-        return ans;
+        for(int i=0; i<q; i++)
+          res.push_back(isPrime[(int)sqrt(query[i])]);    
+        
+        return res;
     }
+    
     
 };
 
