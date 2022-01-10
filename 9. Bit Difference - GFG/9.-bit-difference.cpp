@@ -13,7 +13,7 @@ public:
     int countBits(int N, long long int A[])
     {
         int m=1000000007;
-        lon res=0;
+        long long res=0;
         
         for(int i=0; i<32; i++)
         {
