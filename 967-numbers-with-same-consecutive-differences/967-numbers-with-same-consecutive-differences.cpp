@@ -11,7 +11,7 @@ public:
         for(int i=1;i<n;i++)
         {
             int size = q.size();
-            for(int i=0;i<size;i++)
+            for(int i=0; i<size; i++)
             {
                 int num = q.front();
                 q.pop();
