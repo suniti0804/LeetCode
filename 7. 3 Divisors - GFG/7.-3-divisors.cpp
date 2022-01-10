@@ -12,16 +12,18 @@ vector<int> threeDivisors(vector<long long> query, int q)
         vector<int> res;
         int n=1000001;
         
-        vector<int> isPrime(n+1, 1);
+        int isPrime[n+1];
+        for(int i=0; i<=n; i++)
+          isPrime[i]=1;
         
         isPrime[0]=isPrime[1]=0;
         
         for(long long i=2; i*i<n; i++)
         {
-            if(isPrime[i]==true)
+            if(isPrime[i]==1)
             {
                 for(int p=2*i; p<=n; p+=i)
-                  isPrime[p]=false;
+                  isPrime[p]=0;
             }
         }
         
