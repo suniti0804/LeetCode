@@ -25,7 +25,7 @@ public:
     }
     vector<int> threeDivisors(vector<long long> query, int q)
     {
-        long long mx = *max_element(query.begin(),query.end());
+        //long long mx = *max_element(query.begin(),query.end());
         vector<int>pre = seive();
         vector<int>ans;
         for(auto x:query){
