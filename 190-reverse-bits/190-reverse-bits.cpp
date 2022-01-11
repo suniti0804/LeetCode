@@ -2,7 +2,7 @@ class Solution {
 public:
     uint32_t reverseBits(uint32_t X) 
     {
-        uint32_t res=0;
+        /*uint32_t res=0;
         vector<uint32_t> v;
         while(X)
         {
@@ -16,6 +16,18 @@ public:
         for(int i=0; i<v.size(); i++)
           res+=pow(2,k--)*v[i];
           
-        return res;  
+        return res;    */
+        
+        uint32_t res=0;
+        uint32_t power=31;
+        
+        while(X)
+        {
+            res+=(X&1)<<power;
+            X>>=1;
+            power--;
+        }
+        
+        return res;
     }
 };
