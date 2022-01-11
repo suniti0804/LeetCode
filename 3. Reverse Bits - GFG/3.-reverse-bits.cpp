@@ -5,7 +5,7 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
   public:
-    long long reversedBits(long long X) 
+    /*long long reversedBits(long long X) 
     {
         long long res=0;
         vector<long long> v;
@@ -22,6 +22,21 @@ class Solution {
           res+=pow(2,k--)*v[i];
           
         return res;  
+    } */
+    
+     long long reversedBits(long long n) 
+    {
+        long long res = 0;
+        long long power = 31;
+        
+        while(n)
+        {
+            res+=(n&1)<<power;
+            n=n>>1;
+            power--;
+        }
+        
+        return res;
     }
 };
 
