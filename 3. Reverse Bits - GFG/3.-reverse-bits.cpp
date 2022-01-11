@@ -32,7 +32,7 @@ class Solution {
         while(n)
         {
             res+=(n&1)<<power;
-            n=n>>1;
+            n>>=1;
             power--;
         }
         
