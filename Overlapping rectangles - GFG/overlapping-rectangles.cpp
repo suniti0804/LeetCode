@@ -11,9 +11,18 @@ class Solution {
   public:
     int doOverlap(int L1[], int R1[], int L2[], int R2[]) 
     {
-        if(L2[0]>R1[0]||L1[0]>R2[0]||L1[1]<R2[1]||L2[1]<R1[1])
+        /*if(L2[0]>R1[0]||L1[0]>R2[0]||L1[1]<R2[1]||L2[1]<R1[1])
           return 0;
-        return 1;  
+        return 1;   */
+        
+        int x1=max(L1[0], L2[0]);
+        int y1=max(R1[1], R2[1]);
+        int x2=min(R1[0], R2[0]);
+        int y2=min(L1[1], L2[1]);
+        
+        if(x1<=x2&&y1<=y2)
+          return true;
+        return false;  
     }
 };
 
