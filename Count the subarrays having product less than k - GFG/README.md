@@ -1,5 +1,5 @@
 # Count the subarrays having product less than k
-## Hard 
+##  Hard 
 <div class="problem-statement">
                 <p></p><p><span style="font-family:arial,helvetica,sans-serif"><span style="font-size:20px">Given an array of positive numbers, the task is to find the number of possible contiguous subarrays having product less than a given number k. </span></span></p>
 
