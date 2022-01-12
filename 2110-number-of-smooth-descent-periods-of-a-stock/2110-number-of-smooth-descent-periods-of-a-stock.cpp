@@ -9,6 +9,7 @@ public:
         
         while(i<n)
         {
+            long long start=i;
             long long len=1;
             i++;
             while(i<n&&prices[i]==prices[i-1]-1)
