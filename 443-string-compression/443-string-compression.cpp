@@ -10,7 +10,7 @@ public:
         
         for(i=1; i<chars.size(); i++)
         {
-            if(chars[i]!=chars[i-1])
+            if(chars[i]!=chars[i-1]||i==chars.size())
             {
                 chars[start++]=chars[i-1];
                 if(ctr>=2)
