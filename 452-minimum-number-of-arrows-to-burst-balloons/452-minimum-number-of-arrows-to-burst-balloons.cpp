@@ -4,8 +4,6 @@ public:
     {
         sort(points.begin(), points.end());
         int ctr=1;
-        
-        int lo=points[0][0];
         int hi=points[0][1];
         
         for(auto i:points)
