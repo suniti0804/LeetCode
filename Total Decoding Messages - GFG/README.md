@@ -1,5 +1,5 @@
 # Total Decoding Messages
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">A top secret message containing letters from<code> A-Z </code>is being encoded to numbers using the following mapping:</span></p>
 
