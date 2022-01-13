@@ -15,16 +15,16 @@ public:
         while(lo <= hi)
         {
             mid = lo + (hi - lo)/2;
-            long long cnt = 0;
-            cnt += mid/A;
-            cnt += mid/B;
-            cnt += mid/C;
-            cnt -= mid / lcm(A, B);
-            cnt -= mid / lcm(B, C);
-            cnt -= mid / lcm(C, A);
-            cnt += mid / lcm(A, lcm(B, C));
+            long long ctr = 0;
+            ctr += mid/A;
+            ctr += mid/B;
+            ctr += mid/C;
+            ctr -= mid / lcm(A, B);
+            ctr -= mid / lcm(B, C);
+            ctr -= mid / lcm(C, A);
+            ctr += mid / lcm(A, lcm(B, C));
             
-            if(cnt >= N)
+            if(ctr >= N)
             {
                 ans = mid;
                 hi = mid-1;
