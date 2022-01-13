@@ -28,7 +28,7 @@ public:
     int numSquares(int n)
     {  
         while (n%4== 0)
-            n>>=2;  
+            n/=4;        //n>>=2;  
         
         if (n%8== 7) 
             return 4;  
