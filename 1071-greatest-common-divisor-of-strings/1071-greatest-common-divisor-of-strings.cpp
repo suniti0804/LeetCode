@@ -30,12 +30,11 @@ public:
         
         int len=__gcd(a,b);
         
-        string res=str1.substr(0,len);
-        
-        if(solve(str1, res)&&solve(str2, res))
-            return res;
-        else
+        if(str1+str2!=str2+str1)
             return "";
+        
+        string res=str1.substr(0,len);
+            return res;
         
     }
 };
