@@ -10,13 +10,10 @@ public:
         
         for(auto i:points)
         {
-            if(hi>=i[0]&&hi<=i[1]||i[0]>=lo&&i[0]<=hi)
-            {
-                hi=min(hi, i[1]);
-            }
+            if(i[0]<=hi)
+               hi=min(hi, i[1]);
             else
             {
-                lo=i[0];
                 hi=i[1];
                 ctr++;
             }
