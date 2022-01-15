@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void solve(vector<int>& nums, int s, int e, vector<vector<int>>& res)
+    void solve(vector<int> nums, int s, int e, vector<vector<int>>& res)
     {
         if(s==e) //if traversal has reached end
         {
