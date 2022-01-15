@@ -7,7 +7,7 @@ class Solution{
     public:
     //Complete this function
     
-    vector<string> permutation(string S)
+    /*vector<string> permutation(string S)
     {
         vector<string> res;
         sort(S.begin(), S.end());
@@ -18,7 +18,37 @@ class Solution{
           
         return res;  
         
+    }  */
+    
+    void solve(string S, int s, int e, vector<string>& res)
+    {
+        if(s==e)
+        {
+            res.push_back(S);
+            return;
+        }
+        
+        for(int i=s; i<=e; i++)
+        {
+            swap(S[s], S[i]);
+            solve(S, s+1, e, res);
+            swap(S[s], S[i]);
+        }
+        
+        return;
     }
+    
+    vector<string> permutation(string S)
+    {
+        vector<string> res;
+        //sort(S.begin(), S.end());
+        int n=S.size();
+        
+        solve(S, 0, n-1, res);
+        sort(res.begin(), res.end());
+        return res;
+    }
+    
 };
 
 // { Driver Code Starts.
