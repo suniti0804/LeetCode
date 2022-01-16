@@ -11,8 +11,8 @@ public:
         
         int begin=i;
         int index=i;
-        if(i==0)
-            i++;
+        //if(i==0)
+            //i++;
         
         while(i<n)
         {
@@ -25,8 +25,6 @@ public:
         }
         
         int last=n-index-1;
-        
-        //res=res%2==0?res/2:(res/2)+1;
         return max(begin, max(res/2, last));
         
     }
