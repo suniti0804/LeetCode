@@ -9,8 +9,8 @@ public:
         if (flowerbed.size()==1) 
             return flowerbed[0]==0;
         
-        flowerbed.push_back(0);
-        flowerbed.insert(flowerbed.begin(),0);
+        flowerbed.push_back(0); //insert at end
+        flowerbed.insert(flowerbed.begin(),0); //insert at beginning
         
         int ctr=0, i=0;
         while ((i<flowerbed.size()-2)) 
