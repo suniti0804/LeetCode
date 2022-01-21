@@ -13,14 +13,13 @@ public:
                 {
                     if(arr[j] + arr[k] > arr[i])
                       {
-                          res += k - j;
+                          res+=k-j;
                           k--;
                       }
                     else 
                       j++;
                   }
-          }
-        
+            }
         return res;
     }
 };
