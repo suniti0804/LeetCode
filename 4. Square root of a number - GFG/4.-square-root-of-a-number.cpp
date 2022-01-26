@@ -13,9 +13,9 @@ class Solution{
     {
         if(num==1)
           return 1;
-        long long int x=sqrt(x);
-        if(x*x==num)
-          return x;
+        //long long int x=sqrt(x);
+        //if(x*x==num)
+          //return x;
         
         int s=1;
         int e=num/2;
