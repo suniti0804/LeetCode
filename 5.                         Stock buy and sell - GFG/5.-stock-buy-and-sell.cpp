@@ -18,13 +18,16 @@ public:
         int i=0;
         while(i<n)
         {
-            while(i<n-1&&A[i]>=A[i+1])
+            //buying of stock
+            while(i<n-1&&A[i]>=A[i+1]) //all time least
               i++;
             if(i==n-1)
              break;
-            int buy=i++;
+            int buy=i;
             
-            while(i<n&&A[i]>=A[i-1])
+            //selling of stock
+            i+=1;
+            while(i<n&&A[i]>=A[i-1]) //all time highest
               i++;
             int sell=i-1;
             
