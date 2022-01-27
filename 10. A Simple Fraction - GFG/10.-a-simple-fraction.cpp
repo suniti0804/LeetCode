@@ -7,36 +7,40 @@ class Solution{
 	public:
 	string fractionToDecimal(int num, int den) 
 	{
-	   string res=to_string(num/den);
-	   int quotient=0;
-	   int rem=0;
-	   unordered_map<int,int> mp;
+	   string res="";
+	   if(num==0)
+	     return "0";
+	   if(num>0^den>0)
+	     res+="-";
 	   if(num%den==0)
-	     return res;
-	   
+	     return to_string(num/den);
+	   unordered_map<long, int> mp;  
+	     
+	   long n=abs(num);
+	   long d=abs(den);
+	   res+=to_string(n/d);
 	   res+=".";
-	   rem=num%den;
+	   long rem=0;
+	   long quotient=0;
+	   rem=n%d;
 	   
-	   while(rem != 0)
-	    {
-	        if(mp.find(rem) != mp.end())
-	          {
-	              int len = mp[rem];
-	              res.insert(len, "(");
-	              res += ")";
-	              break;
-	          }
-	        else
-	         {
-	               mp[rem]=res.length();
-	               rem*=10;
-	               quotient=rem/den;
-	               res+=to_string(quotient);
-	               rem%=den;
-	         }
-	    }
-	    
-	   return res; 
+	   while(rem)
+	   {
+	       if(mp.find(rem)!=mp.end())
+	       {
+	           res.insert(mp[rem], "(");
+	           res+=")";
+	           break;
+	       }
+	       
+	       mp[rem]=res.length();
+	       rem*=10;
+	       res+=to_string(rem/d);
+	       rem%=d;
+	       
+	   }
+	   
+	   return res;
 	}
 };
 
