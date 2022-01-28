@@ -13,34 +13,32 @@ class Solution
     //Function to check if two strings are isomorphic.
     bool areIsomorphic(string str1, string str2)
     {
-        int n=str1.size();
+        if(str1.size()!=str2.size())
+          return false;
         int mp[256];
         memset(mp, -1, sizeof(mp));
         bool seen[256];
         memset(seen, 0, sizeof(seen));
         
-        
-        if(str1.size()!=str2.size())
-          return false;
-        
-        for(int i=0; i<n; i++)
+        for(int i=0; i<str1.size(); i++)
         {
-            if(mp[str1[i]]!=-1)
+            if(mp[str1[i]]==-1)
             {
-                if(mp[str1[i]]!=str2[i])
-                  return false;
-            }
-            else if(mp[str1[i]]==-1)
-            {
-                if(seen[str2[i]]==true)
+                if(seen[str2[i]])
                   return false;
                 seen[str2[i]]=true;
                 mp[str1[i]]=str2[i];
             }
-                
+            
+            else
+            {
+                if(mp[str1[i]]!=-1&&mp[str1[i]]!=str2[i])
+                  return false;
+            }
         }
         
         return true;
+        
     }
 };
 
