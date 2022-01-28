@@ -13,57 +13,21 @@ public:
 	    int i=A.size()-1;
 	    int j=B.size()-1;
 	    int carry=0;
-	    int sum=0;
 	    
 	    while(i>=0||j>=0)
 	    {
-	        int a=0, b=0;
+	        int sum=0;
 	        if(i>=0)
-	         a=A[i]-'0';
+	         sum+=A[i]-'0';
 	        if(j>=0)
-	         b=B[j]-'0';
-	        if(carry==1)
-	        {
-	            if(a==1&&b==1)
-	            {
-	                res+='1';
-	                carry=1;
-	            }
-	            
-	            else if(a==1||b==1)
-	            {
-	                res+='0';
-	                carry=1;
-	            }
-	            
-	            else
-	            {
-	                res+='1';
-	                carry=0;
-	            }
-	        }
+	         sum+=B[j]-'0';
+	        sum+=carry; 
+	       
+	        carry=sum>1?1:0;
+	        res+=to_string(sum%2);
 	        
-	        else
-	        {
-	            if(a==1&&b==1)
-	            {
-	                res+='0';
-	                carry=1;
-	            }
-	            else if(a==1||b==1)
-	            {
-	                res+='1';
-	                carry=0;
-	            }
-	            else
-	            {
-	                res+='0';
-	                carry=0;
-	            }
-	        }
-	        
-	        i--;
-	        j--;
+	         i--;
+	         j--;
 	    }
 	    
 	    if(carry)
