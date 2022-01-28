@@ -7,29 +7,30 @@ using namespace std;
 
 class Solution{
     public:
-    string roundToNearest(string N) 
+    string roundToNearest(string s) 
     { 
-        int n=N.size();
-        if(N[n-1]<='5')
-        {
-            N[n-1]='0';
-            return N;
-        }
-        
-        N[n-1]='0';
-        int i=n-2;
-        while(N[i]=='9'&&i>=0)
-        {
-            N[i]='0';
-            i--;
-        }    
-        
-        if(i<0)
-          N.insert(0, "1");
-        else
-          N[i]+=1;
-          
-        return N;  
+       int n=s.size();
+       if(s[n-1]<='5')
+       {
+           s[n-1]='0';
+           return s;
+       }
+       
+       s[n-1]='0';
+       int i=n-2;
+       
+       while(s[i]=='9'&&i>=0)
+       {
+           s[i]='0';
+           i--;
+       }
+       
+       if(i<0)
+         s.insert(0, "1");
+       else
+         s[i]+=1;
+    
+       return s;     
     }  
 
 };
