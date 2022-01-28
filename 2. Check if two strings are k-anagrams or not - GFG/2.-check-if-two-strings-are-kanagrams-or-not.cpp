@@ -13,19 +13,19 @@ class Solution {
     bool areKAnagrams(string str1, string str2, int k) 
     {
         if(str1.size()!=str2.size())
-         return false;
+          return false;
         unordered_map<int, int> mp;
+        
         for(auto s:str1)
           mp[s]++;
-          
-        int ctr=0;  
         for(auto s:str2)
           mp[s]--;
-        
+          
+        int ctr=0;
         for(auto i:mp)
           ctr+=abs(i.second);
-        
-        return (ctr/2)<=k;
+          
+        return (ctr/2)<=k;  
     }
 };
 
