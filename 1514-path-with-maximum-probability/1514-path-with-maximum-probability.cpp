@@ -9,7 +9,7 @@ public:
             adj[edges[i][1]].push_back({edges[i][0],prob[i]});
         }
         
-        vector<double> res(n, (double)0.0);
+        vector<double> res(n, 0.0);
         priority_queue<pair<double,int>> pq;
         pq.push({1.0,start});
         res[start]=1.0;
