@@ -1,43 +1,45 @@
 typedef long long ll;
-typedef pair<long long, long long> ppl;
-class Solution{
-    public:
-int countPaths(int n, vector<vector<int>>& roads) 
-{
-    int mod = (1e9+7);
-    vector<ll> dist(n,LLONG_MAX);
-    vector<int> ways(n,0);
-    priority_queue<ppl, vector<ppl>, greater<ppl>> pq;
-
-    dist[0] = 0; ways[0]=1; pq.push({0,0});
-
-    vector<ppl> adj[n];
-
-    //making adjacency list
-    for(auto x : roads){
-        adj[x[0]].push_back({x[1],x[2]});
-        adj[x[1]].push_back({x[0],x[2]});
-    }
-
-    while(!pq.empty()){
-        ll distance = pq.top().first;
-        ll node = pq.top().second;
-        pq.pop();
-        for(auto x : adj[node]){
-            ll adjNode = x.first;
-            ll nextDist = x.second;
-
-            if(distance+nextDist < dist[adjNode]){
-                dist[adjNode] = distance+nextDist;
-                ways[adjNode] = ways[node];
-                pq.push({dist[adjNode],adjNode});
-            } else if(distance+nextDist == dist[adjNode]){
-                ways[adjNode] = (ways[adjNode]+ways[node])%mod;
+typedef pair<long long, long long> pii;
+class Solution {
+public:
+    int countPaths(int n, vector<vector<int>>& roads) 
+    {
+        vector<vector<pii>> adj(n);
+        
+        for(auto i:roads)
+        {
+            adj[i[0]].push_back({i[1], i[2]});
+            adj[i[1]].push_back({i[0], i[2]});
+        }
+        
+        vector<ll> dist(n, LLONG_MAX);
+        vector<ll> ways(n, 0);
+        dist[0]=0;
+        ways[0]=1;
+        
+        priority_queue<pii, vector<pii>, greater<pii>> pq;
+        pq.push({0, 0});
+        
+        while(!pq.empty())
+        {
+            ll curr_dist=pq.top().first;
+            ll u=pq.top().second;
+            pq.pop();
+            
+            for(auto v:adj[u])
+            {
+                if(dist[v.first]>v.second+dist[u])
+                {
+                    dist[v.first]=v.second+dist[u];
+                    pq.push({dist[v.first], v.first});
+                    ways[v.first]=ways[u];
+                }
+                
+                else if(curr_dist+v.second==dist[v.first])
+                    ways[v.first]=(ways[v.first]+ways[u])%1000000007;
             }
         }
+         
+        return ways[n-1];
     }
-
-    return ways[n-1];
-   
-}
 };
