@@ -1,7 +1,42 @@
 class Solution {
 public:
     
-    int maximumSwap(int num) 
+    void solve(string str, int k, string& res, int ctr)
+    {
+        if(k==0)
+           return;
+        
+        int n=str.size();
+        char curr_max=str[ctr];
+        
+        for(int j=ctr+1; j<n; j++)
+          curr_max=max(curr_max, str[j]);
+          
+        if(curr_max!=str[ctr])
+          k--;
+          
+        for(int j=n-1; j>=0; j--)
+        {
+            if(str[j]==curr_max)
+            {
+                swap(str[j], str[ctr]);
+                if(str.compare(res)>0)
+                  res=str;
+                solve(str, k, res, ctr+1);
+                swap(str[j], str[ctr]);
+            }
+        }
+    }
+    
+    int maximumSwap(int num)
+    {
+        string str=to_string(num);
+        string res=str;
+        solve(str, 1, res, 0);
+        return stoi(res);
+    }
+    
+    /*int maximumSwap(int num) 
     {
         string res=to_string(num);
         int n=res.size();
@@ -27,5 +62,5 @@ public:
             return stoi(res);
         swap(res[left_idx], res[right_idx]);
         return stoi(res);
-    }
+    }  */
 };
