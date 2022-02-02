@@ -12,7 +12,7 @@ public:
             adj[i[1]].push_back({i[0], i[2]});
         }
         
-        vector<ll> dist(n, LLONG_MAX);
+        vector<ll> dist(n, 1e18);
         vector<ll> ways(n, 0);
         dist[0]=0;
         ways[0]=1;
