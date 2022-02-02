@@ -2,7 +2,7 @@ class Solution {
 public:
     int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) 
     {
-        vector<vector<int>> matrix(n, vector(n,10001));
+        vector<vector<int>> matrix(n, vector(n, 10001));
         for(auto i:edges)
             matrix[i[0]][i[1]]=matrix[i[1]][i[0]]=i[2];
         for(int i=0; i<n; i++)
@@ -13,7 +13,7 @@ public:
                 for(int j=0; j<n; j++)
                   matrix[i][j]=min(matrix[i][j],matrix[i][k]+matrix[k][j]);
         
-        int res=0,cities=INT_MAX;
+        int res=0,curr_min=INT_MAX;
                 
          for(int i=0; i<n; i++)
          {
@@ -21,9 +21,9 @@ public:
              for(int j=0; j<n; j++)
                  if(matrix[i][j]<=distanceThreshold)
                      ctr++;
-             if(ctr<=cities)
+             if(ctr<=curr_min)
              {
-                 cities=ctr;
+                 curr_min=ctr;
                  res=i;
              }
          }
