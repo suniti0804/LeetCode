@@ -5,35 +5,29 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-	int isNegativeWeightCycle(int n, vector<vector<int>>edges)
+	int isNegativeWeightCycle(int n, vector<vector<int>>adj)
 	{
-	    int e = edges.size();
-	    int dis[n];
-	    for(int i = 0; i < n; i++)
-	       dis[i] = INT_MAX;
-	    dis[0] = 0;      //when this line was not included it was WA
-	       
-	    for(int i = 0; i < n - 1; i++)
+	    int e=adj.size();
+	    vector<int> dist(n, INT_MAX); //or else can add any big number like
+	    dist[0]=0;                              //1e8 to do addition directly
+	    for(int i=0; i<n-1; i++)
 	    {
-	        for(int j = 0; j < e; j++)
+	        for(int j=0; j<e; j++)
 	        {
-	            if(dis[edges[j][0]] != INT_MAX && 
-	            dis[edges[j][0]] + edges[j][2] < dis[edges[j][1]])
-	            dis[edges[j][1]] = dis[edges[j][0]] + edges[j][2];
+	            if(dist[adj[j][0]]!=INT_MAX&&dist[adj[j][0]]+adj[j][2]<dist[adj[j][1]])
+	              dist[adj[j][1]]=dist[adj[j][0]]+adj[j][2];
 	        }
 	    }
 	    
-	    for(int i = 0; i < e; i++)
+	    for(int j=0; j<e; j++)
 	    {
-	        int x = edges[i][0];
-            int y = edges[i][1];
-            int weight = edges[i][2];
-            if (dis[x] != INT_MAX && dis[x] + weight < dis[y])
-              return 1;
-                
+	        if(dist[adj[j][0]]!=INT_MAX&&dist[adj[j][0]]+adj[j][2]<dist[adj[j][1]])
+	          return 1;
 	    }
 	    
 	    return 0;
+
+	    
 	}
 };
 
