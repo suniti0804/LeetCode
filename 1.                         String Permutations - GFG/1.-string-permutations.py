@@ -3,25 +3,26 @@
 def toString(List): 
         return ''.join(List) 
     
-def permute(a, l, r, res): 
+def solve(s, l, r, res): 
     if l==r: 
-        res.append(toString(a))
+        res.append(toString(s))
         return
     
     for i in range(l,r+1): 
-        a[l], a[i] = a[i], a[l] 
-        permute(a, l+1, r, res) 
-        a[l], a[i] = a[i], a[l] 
+        s[l], s[i] = s[i], s[l] 
+        solve(s, l+1, r, res) 
+        s[l], s[i] = s[i], s[l] 
         
     return 
 
+
+
 class Solution:
-    
-    def permutation(self,s):
+    def permutation(self,string):
         res=[]
-        a=list(s)
+        s=list(string)
         n=len(s)
-        permute(a, 0, n-1, res)
+        solve(s, 0, n-1, res)
         res.sort()
         return res
 
