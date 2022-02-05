@@ -28,12 +28,6 @@
 <strong>Explanation:</strong> The only group is "a", which remains uncompressed since it's a single character.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre><strong>Input:</strong> chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
-<strong>Output:</strong> Return 4, and the first 4 characters of the input array should be: ["a","b","1","2"].
-<strong>Explanation:</strong> The groups are "a" and "bbbbbbbbbbbb". This compresses to "ab12".</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
