@@ -42,13 +42,10 @@ class Solution
         }
         
         curr->next=head;
-        curr=head;
-        //k%=ctr;
-        //if(k==0)
-          //return head;
-        
+        //curr=head;
+       
         ctr=1;
-        while(ctr++<k)
+        while(ctr++<=k)
             curr=curr->next;
         
         
