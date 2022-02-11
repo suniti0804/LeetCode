@@ -81,20 +81,24 @@ class Solution
     {
         if(head==NULL||head->next==NULL||head->next->next==NULL)
           return;
-        Node* alt=head->next;
+        Node*alt=head->next;
+        //alt->next=NULL;  //placing here gives RTE
         head->next=head->next->next;
         head=head->next;
         alt->next=NULL;
         
         while(head!=NULL&&head->next!=NULL)
-         {
-             Node* temp=head->next->next;
-             head->next->next=alt;
-             alt=head->next;
-             head->next=temp;
-             if(temp!=NULL)
-               head=temp;
-         }     
+        {
+            Node* temp=head->next->next; //next odd node
+            
+            head->next->next=alt; //next even node
+            alt=head->next; //link at beginning
+            
+            head->next=temp; //remove even node
+            
+            if(temp!=NULL) //move to next odd
+              head=temp;
+        }
         
         head->next=alt;
        
