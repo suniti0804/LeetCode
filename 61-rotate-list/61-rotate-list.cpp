@@ -25,10 +25,10 @@ public:
         curr->next=head;
         k%=ctr;
         
-        while(ctr>k)
+        while(ctr-->k)
         {
             curr=curr->next;
-            ctr--;
+            //ctr--;
         }
         
         ListNode* res=curr->next;
