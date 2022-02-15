@@ -49,7 +49,7 @@ class Solution
                 
                 if(isValid(x, y, n))
                 {
-                    if(dist[x][y]>=dist[i][j]+grid[x][y])
+                    if(dist[x][y]>dist[i][j]+grid[x][y])
                     {
                         dist[x][y]=dist[i][j]+grid[x][y];
                         pq.push({dist[x][y], {x, y}});
