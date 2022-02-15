@@ -41,14 +41,13 @@ public:
         int n=board[0].size();
         
         vector<vector<bool>> vis(m, vector<bool>(n, false));
-        int idx=0;
-        
+    
         for(int i=0; i<m; i++)
         {
             for(int j=0; j<n; j++)
             {
-                if(board[i][j]==str[idx])
-                   if(dfs(board, i, j, str, vis, idx))
+                if(board[i][j]==str[0])
+                   if(dfs(board, i, j, str, vis, 0))
                       return true;
             }
         }
