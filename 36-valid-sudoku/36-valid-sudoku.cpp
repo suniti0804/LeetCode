@@ -13,11 +13,8 @@ public:
                     string c=to_string(j)+ch;
                     string b=to_string(i/3)+to_string(j/3)+ch;
 
-                    if(row.find(r)!=row.end())
-                        return false;
-                    if(col.find(c)!=col.end())
-                        return false;
-                    if(box.find(b)!=box.end())
+                    if(row.find(r)!=row.end()||col.find(c)!=col.end()||
+                      box.find(b)!=box.end())
                         return false;
 
                     row[r]++;
