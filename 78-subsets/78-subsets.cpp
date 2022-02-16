@@ -1,18 +1,16 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        int n = nums.size();
-        unsigned int pow_set_size = pow(2, n);
-        
         vector<vector<int>> res;
+        int n=nums.size();
         
-        for(int i = 0; i < pow_set_size; i++)
+        for(int mask=0; mask<(1<<n); mask++)
         {
             vector<int> temp;
-            for(int j = 0; j < n; j++)
+            for(int i=0; i<n; i++)
             {
-                if(i & (1 << j))
-                    temp.push_back(nums[j]);
+                if(mask&(1<<i))
+                    temp.push_back(nums[i]);
             }
             
             res.push_back(temp);
