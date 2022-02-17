@@ -1,30 +1,25 @@
 class Solution {
 public:
-     void wb(vector<string>& res, vector<string>& dict, string s, int idx, int n, string str)
-   {
-       if(idx == n)
+    
+    void helper(string s, vector<string>& dict, vector<string>& res, int idx, int n, string curr)
+    {
+        if(idx==n)
         {
-            str.pop_back();
-            res.push_back(str);
+            curr.pop_back();
+            res.push_back(curr);
         }
         
-        else
+        for(int k=idx; k<n; k++)
         {
-            for(int k = idx; k < n; k++)
-            {
-                string temp = s.substr(idx, k - idx + 1);
-                if(find(dict.begin(), dict.end(), temp) != dict.end())
-                   wb(res, dict, s, k + 1, n, str + temp+' ');
-                   
-            }
+            string str=s.substr(idx, k-idx+1);
+            if(find(dict.begin(), dict.end(), str)!=dict.end())
+                helper(s, dict, res, k+1, n, curr+str+' ');
         }
-   }
-
+    }
     
-    vector<string> wordBreak(string s, vector<string>& dict) 
-    {
+    vector<string> wordBreak(string s, vector<string>& dict) {
         vector<string> res;
-        wb(res, dict, s, 0, s.size(), "");
+        helper(s, dict, res, 0, s.size(), "");
         return res;
     }
 };
