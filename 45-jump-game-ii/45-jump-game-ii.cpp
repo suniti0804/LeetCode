@@ -21,7 +21,7 @@ public:
             if(step==0)
             {
                 jump++;
-                if(i>max_step)
+                if(i>=max_step)
                     return -1;
                 step=max_step-i;
             }
