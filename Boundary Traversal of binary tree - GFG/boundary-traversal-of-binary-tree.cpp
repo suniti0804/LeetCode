@@ -106,10 +106,10 @@ struct Node
 class Solution {
 public:
 
-    vector<int> leaves(Node* root, vector<int>& res)
+    void leaves(Node* root, vector<int>& res)
     {
         if(root==NULL)
-          return {};
+          return;
         
         if(!root->right&&!root->left)
           res.push_back(root->data);
@@ -119,14 +119,14 @@ public:
         if(root->right)
           leaves(root->right, res);
           
-        return res;  
+        return;  
     }
 
 
-    vector<int> right(Node* root, vector<int>& res)
+    void right(Node* root, vector<int>& res)
     {
         if(root==NULL)
-          return {};
+          return;
           
         if(root->right)
         {
@@ -139,13 +139,13 @@ public:
             right(root->left, res);
             res.push_back(root->data);
         }
-        return res;
+        return;
     }
 
-    vector<int> left(Node* root, vector<int>& res)
+    void left(Node* root, vector<int>& res)
     {
         if(root==NULL)
-           return {};
+           return;
         
         if(root->left)
         {
@@ -158,14 +158,18 @@ public:
             res.push_back(root->data);
             left(root->right, res);
         }
-        return res;
+        return;
     }
 
+    //take care of the base conditions. one new condition has been added
+    //where only root is present and not any child of it. leaves will print 
+    //that root and as it has been already pushed back so no need for leaves
+    //to push back.
     vector <int> boundary(Node *root)
     {
         if(root==NULL)
           return {};
-        if(!root->left&&!root->right)
+        if(!root->left&&!root->right)  //new condition
           return {root->data};
         vector<int> res;
         res.push_back(root->data);
