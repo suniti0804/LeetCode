@@ -20,6 +20,8 @@ public:
             
             if(step==0)
             {
+                if(i>=max_step)
+                    return -1;
                 jump++;
                 step=max_step-i;
             }
