@@ -106,28 +106,24 @@ struct Node
 class Solution {
 public:
 
-    void leaves(Node* root, vector<int>& res)
-    {
-        if(root==NULL)
-          return;
+   void leaves(Node* root, vector<int>& res)
+   {
+        if(!root)
+         return;
         
-        if(!root->right&&!root->left)
+        if(!root->left&&!root->right)
           res.push_back(root->data);
         
-        if(root->left)
-          leaves(root->left, res);
-        if(root->right)
-          leaves(root->right, res);
-          
-        return;  
-    }
-
+        leaves(root->left, res);
+        leaves(root->right, res);
+         
+   }
 
     void right(Node* root, vector<int>& res)
     {
-        if(root==NULL)
-          return;
-          
+        if(!root)
+           return;
+        
         if(root->right)
         {
             right(root->right, res);
@@ -139,12 +135,11 @@ public:
             right(root->left, res);
             res.push_back(root->data);
         }
-        return;
     }
 
     void left(Node* root, vector<int>& res)
     {
-        if(root==NULL)
+        if(!root)
            return;
         
         if(root->left)
@@ -158,29 +153,24 @@ public:
             res.push_back(root->data);
             left(root->right, res);
         }
-        return;
     }
 
-    //take care of the base conditions. one new condition has been added
-    //where only root is present and not any child of it. leaves will print 
-    //that root and as it has been already pushed back so no need for leaves
-    //to push back.
     vector <int> boundary(Node *root)
     {
-        if(root==NULL)
-          return {};
-        if(!root->left&&!root->right)  //new condition
-          return {root->data};
         vector<int> res;
-        res.push_back(root->data);
-        left(root->left, res);
+        if(!root)
+           return {};
+        if(!root->left&&!root->right)
+          return {root->data};
+          
+        res.push_back(root->data);  
+        
+        left(root->left, res);  //top down manner
         leaves(root, res);
-        right(root->right, res);
+        right(root->right, res); //bottom up manner
         
         return res;
-        
     }
-    
 };
 
 // { Driver Code Starts.
