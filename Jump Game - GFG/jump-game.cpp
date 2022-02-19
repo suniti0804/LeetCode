@@ -20,16 +20,19 @@ class Solution {
         for(int i=1; i<N; i++)
         {
             if(i==N-1)
-               break;
+               return 1;
             max_step=max(max_step, i+A[i]);
-            step--;
+            /*step--;
             if(step==0)
             {
                 if(i>=max_step)
                   return 0;
                 step=max_step-i;  
                   
-            }
+            }*/
+            
+            if(i>=max_step)
+              return 0;
         }
         
         return 1;
