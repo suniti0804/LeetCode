@@ -1,18 +1,19 @@
 class Solution {
 public:
-    bool dfs(vector<int>& arr, vector<bool>& visited, int i)
+    bool dfs(vector<int>& arr, vector<bool>& vis, int i)
     {
-        if (i<0||i>=arr.size()||visited[i]) 
+        if (i<0||i>=arr.size()||vis[i]) 
             return false;
         if (arr[i]==0) 
             return true;
-        visited[i]=true;
-        return dfs(arr, visited, i+arr[i])||dfs(arr, visited, i-arr[i]);
+        vis[i]=true;
+        return dfs(arr, vis, i+arr[i])||dfs(arr, vis, i-arr[i]);
     }
     
     bool canReach(vector<int>& arr, int start) 
     {
-        vector<bool> visited(arr.size(), false);
-        return dfs(arr, visited, start);
+        int n=arr.size();
+        vector<bool> vis(n, false);
+        return dfs(arr, vis, start);
     }
 };
