@@ -25,7 +25,8 @@ class Solution {
            if(pq.size()==0)
               d=events[i].first;
            
-           while(i<N && events[i].first==d)
+           while(i<N && events[i].first==d) //<=d, but as sorted so no value 
+                                            //can be greater than d
               pq.push(events[i++].second);
              
            pq.pop();
