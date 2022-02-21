@@ -10,31 +10,33 @@ class Solution {
   public:
     int maxEvents(int start[], int end[], int N)
     {
-         vector<pair<int,int>>events;
-   for(int i=0;i<N;i++){
-       events.push_back({start[i], end[i]});
-   }
-   
-   sort(events.begin(), events.end());
-   
-   
-   priority_queue<int,vector<int>, greater<int>>pq;
-   int cnt=0;
-   int i=0, d=0;
-   while(!pq.empty() || i<N){
-       if(pq.size()==0)
-       d=events[i].first;
+       vector<pair<int,int>>events;
+       for(int i=0;i<N;i++)
+           events.push_back({start[i], end[i]});
        
-       while(i<N && events[i].first<=d)
-         pq.push(events[i++].second);
-         
-         pq.pop();
-         
-         cnt++;
-         d++;
-         while(!pq.empty() && pq.top()<d) pq.pop();
-   }
-   return cnt;
+       sort(events.begin(), events.end());
+       
+       priority_queue<int,vector<int>, greater<int>>pq;
+       
+       int cnt=0;
+       int i=0, d=0;
+       while(!pq.empty()||i<N)
+       {
+           if(pq.size()==0)
+              d=events[i].first;
+           
+           while(i<N && events[i].first==d)
+              pq.push(events[i++].second);
+             
+           pq.pop();
+             
+           cnt++;
+           d++;
+           while(!pq.empty()&&pq.top()<d) 
+              pq.pop();
+       }
+       
+       return cnt;
     }
 };    
 
