@@ -25,14 +25,12 @@ public:
         curr->next=head;
         k%=ctr;
         
-        while(ctr-->k)
-        {
-            curr=curr->next;
-            //ctr--;
-        }
-        
-        ListNode* res=curr->next;
+        k=ctr-k;
+        while(k--&&curr->next)
+           curr=curr->next;
+            
+        head=curr->next;
         curr->next=NULL;
-        return res;
+        return head;
     }
 };
