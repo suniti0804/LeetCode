@@ -1,13 +1,13 @@
 class Solution {
 public:
-    int nextGreaterElement(int n) 
+    int nextGreaterElement(int num) 
     {
-        string arr=to_string(n);
-        int N=arr.size();
+        string arr=to_string(num);
+        int n=arr.size();
         int i;
-        for(i = N - 1; i > 0; i--)
+        for(i=n-1; i>0; i--)
          {
-             if(arr[i]>arr[i - 1])
+             if(arr[i]>arr[i-1])
                 break;
          }
          
@@ -17,8 +17,8 @@ public:
              return -1;
          }
         
-        int x = arr[i - 1], smallest = i;
-        for(int j = i + 1; j < N; j++)
+        int x=arr[i- 1], smallest=i;
+        for(int j = i + 1; j < n; j++)
          {
              if(arr[j]>x&&arr[j]<arr[smallest])
                smallest=j;
@@ -27,7 +27,7 @@ public:
         swap(arr[smallest], arr[i-1]);
         sort(arr.begin()+i, arr.end());
         
-        long long res=stol(arr);
+        long long res=stol(arr);  //string to long
         if(res<=INT_MAX)
             return res;
         return -1;
