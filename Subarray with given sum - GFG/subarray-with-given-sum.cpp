@@ -17,7 +17,7 @@ class Solution
         while(i<=n)
         {
             if(sum<s)
-               sum+=arr[i++];
+              sum+=arr[i++];
             else if(sum>s)
               sum-=arr[j++];
             if(sum==s)
