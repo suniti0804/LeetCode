@@ -9,45 +9,42 @@ class Solution{
     /*You are required to complete this method */
     int findMaxDiff(int A[], int n)
     {
-        vector<int> left(n,0), right(n,0);
-        left[0]=0;
-        right[n-1]=0;
+        vector<int> left(n), right(n);
         
-        for(int i=1; i<n; i++)
-        {
-            for(int j=i-1; j>=0; j--)
-            {
-                if(A[j]<A[i])
-                {
-                    left[i]=A[j];
-                    break;
-                }
-            }
-            //cout<<left[i]<<" ";
-        }
+        stack<int> st;
         
-        //cout<<"\n";
-        
-        for(int i=n-2; i>=0; i--)
-        {
-            for(int j=i+1; j<n; j++)
-            {
-                if(A[j]<A[i])
-                {
-                    right[i]=A[j];
-                    break;
-                }
-            }
-            //cout<<right[i]<<" ";
-        }
-        
-        //cout<<"\n";
-        
-        int res=0;
         for(int i=0; i<n; i++)
-          res=max(res, abs(left[i]-right[i]));
+        {
+            while(!st.empty()&&st.top()>=A[i])
+              st.pop();
+            if(!st.empty())
+              left[i]=st.top();
+            else
+              left[i]=0;
+            st.push(A[i]);  
+        }
+        
+        reverse(A, A+n);
+        while(!st.empty())
+          st.pop();
+        for(int i=0; i<n; i++)
+        {
+            while(!st.empty()&&st.top()>=A[i])
+              st.pop();
+            if(!st.empty())
+              right[i]=st.top();
+            else
+              right[i]=0;
+            st.push(A[i]);  
+        }
+        
+        int res=INT_MIN;
+        
+        for(int i=0; i<n; i++)
+          res=max(res, abs(left[i]-right[n-1-i]));
           
         return res;  
+        
     }
 };
 
