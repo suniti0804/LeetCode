@@ -10,13 +10,13 @@ class Solution
     
     void dfs(int i, int j, vector<vector<int>>& grid, int& a)
     {
-        int n=grid.size();
-        int m=grid[0].size();
+        int m=grid.size();
+        int n=grid[0].size();
         
-        if(i>=n||i<0||j>=m||j<0||grid[i][j]==0)
+        if(i<0||i>=m||j<0||j>=n||grid[i][j]!=1)
           return;
           
-        a+=1;
+        a++;
         grid[i][j]=0;
         
         dfs(i+1, j, grid, a);
@@ -28,24 +28,23 @@ class Solution
         dfs(i-1, j+1, grid, a);
         dfs(i-1, j-1, grid, a);
         
+        
     }
     
-    int findMaxArea(vector<vector<int>>& grid) 
-    {
+    int findMaxArea(vector<vector<int>>& grid) {
         int res=0;
+        
         for(int i=0; i<grid.size(); i++)
         {
             for(int j=0; j<grid[0].size(); j++)
             {
+                int ctr=0;
                 if(grid[i][j]==1)
-                {
-                    int a=0;
-                    dfs(i, j, grid, a);
-                    res=max(res, a);
-                }
+                  dfs(i, j, grid, ctr);
+                  
+                res=max(res, ctr);  
             }
         }
-        
         return res;
     }
 };
