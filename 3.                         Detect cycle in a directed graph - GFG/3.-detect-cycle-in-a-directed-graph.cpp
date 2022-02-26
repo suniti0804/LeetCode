@@ -7,7 +7,7 @@ class Solution {
   public:
     // Function to detect cycle in a directed graph.
     
-    bool dfs(vector<int> adj[], int u, vector<bool>& vis, vector<int>& rec)
+    bool dfs(vector<int> adj[], int u, vector<bool>& vis, vector<bool>& rec)
     {
         vis[u]=true;
         rec[u]=true;
@@ -26,7 +26,7 @@ class Solution {
     
     bool isCyclic(int V, vector<int> adj[]) 
     {
-        vector<int> rec(V, 0);
+        vector<bool> rec(V, 0);
         vector<bool> vis(V, 0);
         
         for(int i=0; i<V; i++)
