@@ -9,23 +9,27 @@ using namespace std;
 
 class Solution{   
 public:
-    int lengthOfLongestAP(int nums[], int n) 
+    int lengthOfLongestAP(int A[], int n) 
     {
-       if(n <= 2)
+        if(n<=2)
           return n;
-
-        int ans = 0;
+        int ans=0;
         vector<unordered_map<int, int>> t(n);
         
-        for (int i = 0; i < n; i++) 
+        for(int i=0; i<n; i++)
         {
-            for (int j = 0; j < i; j++) 
+            for(int j=0; j<i; j++)
             {
-                int diff = nums[i] - nums[j];
-                t[i][diff] = t[j].count(diff) > 0 ? t[j][diff] + 1 : 2;
-                ans = max(ans, t[i][diff]);
+                int diff=A[i]-A[j];
+                if(t[j].count(diff)>0)
+                   t[i][diff]=t[j][diff]+1;
+                else
+                  t[i][diff]=2;
+                  
+                ans=max(ans, t[i][diff]);  
             }
         }
+        
         return ans;
     }
 };
