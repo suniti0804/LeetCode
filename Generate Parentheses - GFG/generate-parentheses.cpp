@@ -14,28 +14,27 @@ vector<string> AllParenthesis(int n) ;
 class Solution
 {
     public:
+    
     void solve(int open, int close, string str, vector<string>& res)
     {
-        if(open == 0 && close == 0)  //leaf node has been reached
-         {
-             res.push_back(str);
-             return;
-         }
-         
-        if(open != 0)
+        if(open==0&&close==0)
         {
-            string str1 = str;
-            str1.push_back('(');
-            //open--;
-            solve(open - 1, close, str1, res);
+            res.push_back(str);
+            return;
         }
         
-        if(close > open)
+        if(open!=0)
         {
-            string str2 = str;
+            string str1=str;
+            str1.push_back('(');
+            solve(open-1, close, str1, res);
+        }
+        
+        if(open<close)
+        {
+            string str2=str;
             str2.push_back(')');
-            //close--;
-            solve(open, close - 1, str2, res);
+            solve(open, close-1, str2, res);
         }
         
         return;
@@ -44,12 +43,9 @@ class Solution
     vector<string> AllParenthesis(int n) 
     {
         vector<string> res;
-        int open = n;
-        int close = n;
+        string str="";
         
-        string str = "";
-        
-        solve(open, close, str, res);
+        solve(n, n, str, res);
         return res;
     }
 };
