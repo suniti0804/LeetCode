@@ -1,5 +1,5 @@
 # Maximum sum increasing subsequence
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array <strong>arr</strong> of <strong>N</strong> positive integers, the task is to find the <strong>maximum sum increasing subsequence</strong> of the given array.</span><br>
 &nbsp;</p>
