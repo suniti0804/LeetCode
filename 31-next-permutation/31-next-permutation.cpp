@@ -14,14 +14,13 @@ public:
          {
              reverse(arr.begin(), arr.end());
              return;
-            //return arr;
          }
         
-        int x = arr[i - 1], smallest = i;
-        cout<<"x is: "<<x<<"\n";
+        int smallest = i;
+        //smallest digit greater than x
         for(int j = i + 1; j < N; j++)
          {
-             if(arr[j]>x&&arr[j]<arr[smallest])
+             if(arr[j]>arr[i-1]&&arr[j]<arr[smallest])
                smallest=j;
          }
          
