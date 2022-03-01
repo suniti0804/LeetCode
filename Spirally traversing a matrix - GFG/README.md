@@ -1,5 +1,5 @@
 # Spirally traversing a matrix
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a&nbsp;matrix&nbsp;of size r*c. Traverse the matrix in spiral form.</span></p>
 
