@@ -1,5 +1,5 @@
 # Number of distict Words with k maximum contiguous vowels
-## Hard 
+##  Hard 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Find the number of unique words consisting of lowercase alphabets only of length N that can be formed with at-most K contiguous vowels.&nbsp;</span></p>
 
