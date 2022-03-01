@@ -3,23 +3,25 @@ public:
     void nextPermutation(vector<int>& nums) 
     {
         int N=nums.size();  
-        int k, l;
-    	for (k = N - 2; k >= 0; k--) {
-            if (nums[k] < nums[k + 1]) {
+        int i, j;
+    	for(i=N-2; i>=0; i--)
+            if (nums[i]<nums[i+1]) 
                 break;
-            }
+            
+        
+    	if (i<0) 
+        {
+            reverse(nums.begin(), nums.end());
+            return;
         }
-    	if (k < 0) {
-    	    reverse(nums.begin(), nums.end());
-    	} else {
-    	    for (l = N - 1; l > k; l--) {
-                if (nums[l] > nums[k]) {
-                    break;
-                }
-            } 
-    	    swap(nums[k], nums[l]);
-    	    reverse(nums.begin() + k + 1, nums.end());
-        }
+        
+    	for (j=N-1; j>i; j--) 
+            if (nums[j]>nums[i]) 
+                break;
+                
+            
+    	swap(nums[i], nums[j]);
+    	reverse(nums.begin()+i+1, nums.end());
         return;
          
     }
