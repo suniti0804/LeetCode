@@ -14,7 +14,6 @@ class Solution
     int kvowelwords(int N, int K) 
     {
         const int MOD = 1e9+7;
-        
         vector<vector<long long>> t(N+1, vector<long long> (K+1));
         
         for(int i=0; i<=N; i++)
