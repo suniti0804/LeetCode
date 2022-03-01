@@ -10,19 +10,45 @@ using namespace std;
 class Solution{
 public:
 
+    /*int subsetSum(int arr[], int N, int M)
+    {
+        vector<vector<int>> t(N+1, vector<int> (M+1));
+        
+        for(int i=0; i<=N; i++)
+          for(int j=0; j<=M; j++)
+            {
+                if(i==0)
+                  t[i][j]=0;
+                if(j==0)
+                  t[i][j]=1;
+            }
+            
+        for(int i=1; i<=N; i++)
+        {
+            for(int j=1; j<=M; j++)
+            {
+                if(arr[i-1]<=j)
+                  t[i][j]=t[i-1][j-arr[i-1]]||t[i-1][j];
+                else
+                  t[i][j]=t[i-1][j];
+            }
+        }
+        
+        return t[N][M];
+    }  */
+
     int subsetSum(int arr[], int N, int M)
     {
         bool t[M + 1];
         memset(t, false, sizeof(t));
         t[0] = true;
 
-
         for (int i = 0; i < N; i++)
         {
             for (int j = M; j > 0; j--) 
             {
-                if (j >= arr[i]) 
-                  t[j] = t[j] || t[j - arr[i]];
+                if (arr[i]<=j) 
+                  t[j]=t[j]||t[j - arr[i]];
             }
         }
 
