@@ -1,34 +1,26 @@
 class Solution {
 public:
-    void nextPermutation(vector<int>& arr) {
-          
-        int N=arr.size();
-        int i;
-        for(i = N - 1; i > 0; i--)
-         {
-             if(arr[i]>arr[i - 1])
+    void nextPermutation(vector<int>& nums) 
+    {
+        int N=nums.size();  
+        int k, l;
+    	for (k = N - 2; k >= 0; k--) {
+            if (nums[k] < nums[k + 1]) {
                 break;
-         }
-         
-        if(i==0)
-         {
-             reverse(arr.begin(), arr.end());
-             return;
-         }
-        
-        int smallest = i;
-        //smallest digit greater than x
-        for(int j = i + 1; j < N; j++)
-         {
-             if(arr[j]>arr[i-1]&&arr[j]<arr[smallest])
-               smallest=j;
-         }
-         
-        swap(arr[smallest], arr[i-1]);
-        sort(arr.begin()+i, arr.end());
-        
+            }
+        }
+    	if (k < 0) {
+    	    reverse(nums.begin(), nums.end());
+    	} else {
+    	    for (l = N - 1; l > k; l--) {
+                if (nums[l] > nums[k]) {
+                    break;
+                }
+            } 
+    	    swap(nums[k], nums[l]);
+    	    reverse(nums.begin() + k + 1, nums.end());
+        }
         return;
-        //return arr;
          
     }
 };
