@@ -5,7 +5,6 @@ public:
     {
         if(visited[u]==1)
             return true;
-
         else if(visited[u]==0)
         {
             visited[u]=1;
@@ -13,6 +12,8 @@ public:
                 if(isCyclic(v, adj, visited))
                     return true;
         }
+
+       
         
         visited[u]=2;
         return false;
