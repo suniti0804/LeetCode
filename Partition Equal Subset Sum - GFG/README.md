@@ -1,5 +1,5 @@
 # Partition Equal Subset Sum
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array&nbsp;<strong>arr[]</strong> of size&nbsp;<strong>N</strong>, check if&nbsp;it can be partitioned into two parts such that the sum of elements in both parts&nbsp;is the same.</span></p>
 
