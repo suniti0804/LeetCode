@@ -6,7 +6,7 @@ public:
         if(visited[u]==1)
             return true;
 
-        if(visited[u]==0)
+        else if(visited[u]==0)
         {
             visited[u]=1;
             for(auto v:adj[u])
