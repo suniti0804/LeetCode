@@ -11,7 +11,16 @@ class Solution{
 public:
     int height(int N)
     {
-        return (int)(-1+(sqrt(1+(8*N))))/2;
+        int step=0;
+        int sum=0;
+        
+        while(sum<=N)
+        {
+            step++;
+            sum+=step;
+        }
+        
+        return step-1;
     }
 };
 
