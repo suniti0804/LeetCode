@@ -12,10 +12,11 @@ class Solution{
     
     void topoSortUtil(vector<int> adj[], int u, int k, stack<int>& st, vector<int>& vis)
     {
+        if(u>=k||vis[u]!=0)
+          return;
         vis[u]=1;
         
         for(auto v:adj[u])
-          if(vis[v]==0)
             topoSortUtil(adj, v, k, st, vis);
         
         vis[u]=2;
@@ -29,7 +30,6 @@ class Solution{
         stack<int> st;
         
         for(int i=0; i<k; i++)
-          if(vis[i]==0)
            topoSortUtil(adj, i, k, st, vis);
            
         while(!st.empty())
