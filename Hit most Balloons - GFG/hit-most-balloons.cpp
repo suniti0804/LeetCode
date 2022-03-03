@@ -17,15 +17,15 @@ class Solution {
      
         for(int i=0; i<N; i++)
         {
-            double x1=arr[i].first;
-            double y1=arr[i].second;
+            int x1=arr[i].first;
+            int y1=arr[i].second;
             
             unordered_map<double, int> mp;  
             int ctr=0;
             for(int j=0; j<N; j++)
             {
-                double x2=arr[j].first;
-                double y2=arr[j].second;
+                int x2=arr[j].first;
+                int y2=arr[j].second;
                 
                 if(x1==x2&&y1==y2)
                   ctr++;
