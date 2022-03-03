@@ -12,7 +12,7 @@ class Solution{
     
     void topoSortUtil(vector<int> adj[], int u, int k, stack<int>& st, vector<int>& vis)
     {
-        if(u>=k||vis[u]!=0)
+        if(u>=k||vis[u]==1)
           return;
         vis[u]=1;
         
