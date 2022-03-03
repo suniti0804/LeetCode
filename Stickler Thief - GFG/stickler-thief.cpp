@@ -10,7 +10,7 @@ class Solution
     //Function to find the maximum money the thief can get.
     int FindMaxSum(int arr[], int n)
     {
-        int t[n+1];
+        int t[n];
         t[0]=arr[0];
         t[1]=max(arr[0], arr[1]);
         
