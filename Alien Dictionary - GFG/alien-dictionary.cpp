@@ -19,7 +19,7 @@ class Solution{
         for(auto v:adj[u])
             topoSortUtil(adj, v, k, st, vis);
         
-        vis[u]=2;
+        vis[u]=1;
         st.push(u);
     }
     
