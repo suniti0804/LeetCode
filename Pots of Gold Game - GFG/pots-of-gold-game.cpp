@@ -7,31 +7,22 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-    int maxCoins(vector<int>&nums,int n)
+    int maxCoins(vector<int>&piles,int n)
     {
-        vector<vector<int>> t(n, vector<int>(n, -1));
+       
+        vector<vector<int>>dp(n, vector<int>(n));
         
-        for (int i=0; i<n; i++) 
-            t[i][i]=nums[i];
-        
-        for (int i=1; i<n; i++)
-        {
-            for (int j=0; j+i<n; j++) 
-            {
-                if(i==0)
-                  t[j][j]=nums[j];
-                else if(i==1)
-                  t[j][j+i]=max(nums[j], nums[j+i]);
-                else
-                {
-                   t[j][j+i]=max(nums[j]+min(t[j+2][j+i], t[j+1][j+i-1]),
-	                             nums[j+i]+min(t[j][j+i-2], t[j+1][j+i-1]));
+        for(int gap = 0; gap < n; gap++)
+            for(int i = 0, j = gap; j < n; i++, j++){
+                if(gap == 0) dp[i][j] = piles[i];
+                else if(gap == 1) dp[i][j] = max(piles[i], piles[j]);
+                else{
+                    int case1 = piles[i] + min(dp[i+2][j], dp[i+1][j-1]);
+                    int case2 = piles[j] + min(dp[i+1][j-1], dp[i][j-2]);
+                    dp[i][j] = max(case1, case2); // maximum of these 2 cases
                 }
             }
-        }
-            
-        
-        return t[0][n-1]; 
+        return dp[0][n-1];
     }
 };
 
