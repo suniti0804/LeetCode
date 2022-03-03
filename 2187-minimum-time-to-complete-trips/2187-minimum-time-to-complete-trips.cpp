@@ -12,6 +12,7 @@ public:
     long long minimumTime(vector<int>& time, int t) 
     {
         long long int lo=0, hi=LLONG_MAX/time.size();
+        long long ans=0;
        
         while(lo<hi)
         {
@@ -19,9 +20,12 @@ public:
             if(trips(mid, time)<t)
                 lo=mid+1;
             else
+            {
+                ans=mid;
                 hi=mid;
+            }
         }
         
-        return lo;
+        return ans;
     }
 };
