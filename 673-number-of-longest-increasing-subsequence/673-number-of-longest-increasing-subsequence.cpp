@@ -25,7 +25,7 @@ public:
             
             if(max_len==t[i])
                 res+=cnt[i];
-            if(max_len<t[i])
+            else if(max_len<t[i])
             {
                 max_len=t[i];
                 res=cnt[i];
