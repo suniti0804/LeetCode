@@ -12,14 +12,10 @@ class Solution
     //when order does not matter.
     long long countWays(int m)
     {
-        long long t[m+1];
-        t[0]=1;
-        t[1]=1;
-        
-        for(int i=2; i<=m; i++)
-            t[i]=1+t[i-2];
-            
-        return t[m];    
+        if(m%2==0) 
+           return (m/2)+1;
+        else 
+           return ((m-1)/2)+1;
     }
 };
 
