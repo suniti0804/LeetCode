@@ -14,7 +14,7 @@ public:
                 {
                     if(t[i]==t[j]+1)
                         cnt[i]+=cnt[j];
-                    if(t[i]<t[j]+1)
+                    else if(t[i]<t[j]+1)
                     {
                         t[i]=t[j]+1;
                         cnt[i]=cnt[j];
