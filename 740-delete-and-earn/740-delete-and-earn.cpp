@@ -8,8 +8,7 @@ public:
             mp[nums[i]] += nums[i];
         
         int N = *max_element(nums.begin(), nums.end());
-        int t[N + 1];
-        memset(t, 0, sizeof(t));
+        vector<int> t(N+1, 0);
         t[1] = mp[1];
         
         for(int i = 2; i <= N; i++)
