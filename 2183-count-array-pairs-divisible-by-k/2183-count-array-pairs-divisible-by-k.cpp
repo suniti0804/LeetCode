@@ -1,7 +1,6 @@
 class Solution {
 public:
-    long long countPairs(vector<int>& nums, int k) 
-    {
+    long long countPairs(vector<int>& nums, int k) {
         long long ans = 0;
         unordered_map<int, int> mp;
         
