@@ -1,5 +1,7 @@
 class Solution {
 public:
+    
+    /*https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/discuss/768582/Simple-math.-No-DP*/
     int numOfSubarrays(vector<int>& arr) 
     {
         long long odd=0;
