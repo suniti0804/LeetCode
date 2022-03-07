@@ -20,14 +20,8 @@ We could simply use Map + Prefix Sum to get it! */
         for(int i=0; i<arr.size(); i++)
         {
             sum+=arr[i];
-            if(sum>target)
-            {
-                while(sum>target&&j<=i)
-                {
-                    sum-=arr[j];
-                    j++;
-                }
-            }
+            while(sum>target&&j<=i)
+                sum-=arr[j++];
             if(sum==target)
                 res=max(res, i-j+1);
         }
