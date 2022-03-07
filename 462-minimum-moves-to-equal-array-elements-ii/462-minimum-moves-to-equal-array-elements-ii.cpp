@@ -16,9 +16,9 @@ public:
         
         sort(nums.begin(), nums.end());
         
-        if(n%2!=0)
+        //if(n%2!=0)
             return solve(nums, n/2);
-        else
-            return min(solve(nums, n/2), solve(nums, (n-1)/2));
+        //else
+           // return min(solve(nums, n/2), solve(nums, (n-1)/2));
     }
 };
