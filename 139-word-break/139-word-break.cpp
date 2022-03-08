@@ -12,15 +12,14 @@ public:
             {
                 if(t[j])
                 {
-                    string str=s.substr(j, i-j);
-                    auto it=find(dict.begin(), dict.end(), str);
+                    string curr=s.substr(j, i-j);
+                    auto it=find(dict.begin(), dict.end(), curr);
                     if(it!=dict.end())
                     {
                         t[i]=true;
                         break;
                     }
                 }
-                
             }
         }
         return t[n];
