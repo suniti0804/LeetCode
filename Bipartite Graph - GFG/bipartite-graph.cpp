@@ -5,7 +5,7 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-
+   
    bool bfs(int u, vector<int> &color, vector<int> adj[]) 
    {
         queue<int> q;
@@ -18,9 +18,9 @@ public:
             q.pop();
             for(auto x:adj[i]) 
             {
-                if(color[x]==0) //not colored yet
+                if(color[x]==-1) //not colored yet
                 {
-                    color[x]=-color[i];
+                    color[x]=!color[i];
                     q.push(x);
                 }
                 else if(color[x]==color[i])
@@ -32,11 +32,11 @@ public:
 
 	bool isBipartite(int V, vector<int> adj[])
 	{
-	    vector<int> color(V, 0);
+	    vector<int> color(V, -1);
 
         for(int i=0; i<V; i++)   //doing bfs for multiple components
         {
-           if(!color[i]&&!bfs(i, color, adj))
+           if(color[i]==-1&&!bfs(i, color, adj))
              return false;
         }
         return true;
