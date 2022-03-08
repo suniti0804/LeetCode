@@ -5,7 +5,8 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-   
+   //coloring graph with 0 and 1.
+   //colored array is used as visited array
    bool bfs(int u, vector<int> &color, vector<int> adj[]) 
    {
         queue<int> q;
@@ -36,8 +37,9 @@ public:
 
         for(int i=0; i<V; i++)   //doing bfs for multiple components
         {
-           if(color[i]==-1&&!bfs(i, color, adj))
-             return false;
+           if(color[i]==-1)    //not has been visited
+              if(!bfs(i, color, adj))
+                return false;
         }
         return true;
 	    
