@@ -10,33 +10,33 @@ public:
    {
         queue<int> q;
         q.push(u);
-        color[u] = 1;
+        color[u]=1;
         
         while(!q.empty()) 
         {
-            int i = q.front(); q.pop();
-            for(auto x : adj[i]) 
+            int i = q.front(); 
+            q.pop();
+            for(auto x:adj[i]) 
             {
-                if(color[x] == 0) 
+                if(color[x]==0) //not colored yet
                 {
-                    color[x] = -color[i];
+                    color[x]=-color[i];
                     q.push(x);
                 }
-                else if(color[x] == color[i])
-                return false;
+                else if(color[x]==color[i])
+                    return false;
             }
         }
-        
         return true;
    }
 
 	bool isBipartite(int V, vector<int> adj[])
 	{
-	    vector<int> color(V);
+	    vector<int> color(V, 0);
 
-        for(int i = 0; i < V; i++)   //doing bfs for multiple componen
+        for(int i=0; i<V; i++)   //doing bfs for multiple components
         {
-           if(!color[i] and !bfs(i, color, adj))
+           if(!color[i]&&!bfs(i, color, adj))
              return false;
         }
         return true;
