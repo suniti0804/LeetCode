@@ -7,6 +7,7 @@ public:
         {
             curr.pop_back();
             res.push_back(curr);
+            return;
         }
         
         for(int k=idx; k<s.size(); k++)
