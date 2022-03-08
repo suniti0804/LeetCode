@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool wordBreak(string s, vector<string>& dict)
+    bool wordBreak(string s, vector<string>& dict) 
     {
         int n=s.size();
         vector<bool> t(n+1, false);
@@ -24,5 +24,6 @@ public:
             }
         }
         return t[n];
+        
     }
 };
