@@ -10,9 +10,8 @@
  */
 class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
-    {
-        ListNode* res=NULL;
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+         ListNode* res=NULL;
         ListNode* temp=NULL;
         int carry=0;
         
@@ -46,6 +45,5 @@ public:
         }
         
         return res;
-        
     }
 };
