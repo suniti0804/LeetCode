@@ -11,10 +11,10 @@ public:
             for(int j=0; j<=i; j++)
             {
                 if(j==0||j==i)
-                    arr[i][j]=1;
+                   temp.push_back(1);
                 else
-                    arr[i][j]=arr[i-1][j-1]+arr[i-1][j];
-                temp.push_back(arr[i][j]);
+                    temp.push_back(res[i-1][j-1]+res[i-1][j]);
+                //temp.push_back(arr[i][j]);
             }
             res.push_back(temp);
         }
