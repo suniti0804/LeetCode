@@ -26,12 +26,7 @@ public:
             head=head->next;
             return head;
         }
-        if(len==1)
-            return head;
-        if(len<n)
-            return head;
-        
-         
+      
         len-=n;
         curr=head;
         while(--len)
