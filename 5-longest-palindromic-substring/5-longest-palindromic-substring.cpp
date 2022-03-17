@@ -1,6 +1,7 @@
 class Solution {
 public:
-    string longestPalindrome(string s) {
+    string longestPalindrome(string s) 
+    {
         int n=s.size();
         int t[n][n];
         int start=0;
@@ -42,5 +43,6 @@ public:
             ans+=s[i];
         
         return ans;
+        
     }
 };
