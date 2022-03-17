@@ -3,13 +3,11 @@ public:
     string longestPalindrome(string s) 
     {
         int n=s.size();
-        int t[n][n];
-        int start=0;
+        vector<vector<int>> t(n, vector<int> (n, 0));
         
+        int start=0;   
         int maxLen=1;
-        
-        memset(t, 0, sizeof(t));
-        
+    
         for(int i=0; i<n; i++)
             t[i][i]=true;
         
