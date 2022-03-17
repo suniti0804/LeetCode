@@ -8,7 +8,7 @@ class Solution{
 	public:
 	int minCoins(int coins[], int M, int V) 
 	{ 
-	    sort(coins, coins+M);
+	    //sort(coins, coins+M);
 	    vector<int> t(V+1, INT_MAX);
 	    t[0]=0;
 	    for(int i=1; i<=V; i++)
