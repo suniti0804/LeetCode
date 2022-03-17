@@ -37,15 +37,15 @@ class Solution
     { 
         int ctr=0, profit=0;
         sort(arr, arr+n, myComp);
-        vector<int> done(101, -1);
+        vector<bool> done(101, false);
         
         for(int i=0; i<n; i++)
         {
             for(int j=min(n, arr[i].dead-1); j>=0; j--)
             {
-                if(done[j]==-1)
+                if(!done[j])
                 {
-                    done[j]=i;
+                    done[j]=true;
                     ctr++;
                     profit+=arr[i].profit;
                     break;
