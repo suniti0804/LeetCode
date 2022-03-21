@@ -25,7 +25,7 @@ public:
                 return -1;
             if(num1>num2)
                 return 1;
-            i++;
+            i++; //to increment for dot
             j++;
         }
         return 0;
