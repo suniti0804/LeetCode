@@ -8,7 +8,7 @@ public:
         string b=strs[n-1];
         
         int i=0;
-        while(i<strs[0].size())
+        while(i<a.size())
         {
             if(a[i]==b[i])
                 i++;
@@ -17,6 +17,7 @@ public:
         }
         
         return a.substr(0, i);
+        
         
     }
 };
