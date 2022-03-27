@@ -11,8 +11,8 @@ public:
         int lo = 0, hi = n1;
         while (lo <= hi) 
         {
-            int mid1=(lo + hi)/2; //cut location is counted to right half
-            int mid2=(n1 + n2)/2-mid1;
+            int mid1=(lo+hi)/2; //cut location is counted to right half
+            int mid2=(n1+n2)/2-mid1;
             
             int l1=(mid1==0)?INT_MIN:a1[mid1-1];
             int l2=(mid2==0)?INT_MIN:a2[mid2-1];
