@@ -1,59 +1,61 @@
 // { Driver Code Starts
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
+
 
  // } Driver Code Ends
 class Solution{
-public:
+    public:
+        
+    // A[]: input array
+    // N: size of array
+    // Function to find the maximum index difference.
     int maxIndexDiff(int arr[], int n) 
-    {
-        vector<int> right_max(n);
-        vector<int> left_min(n);
-        
-        left_min[0]=arr[0];
-        for(int i=1; i<n; i++)
-          left_min[i]=min(left_min[i-1], arr[i]);
-          
-        right_max[n-1]=arr[n-1];  
-        for(int i=n-2; i>=0; i--)
-          right_max[i]=max(right_max[i+1], arr[i]);
-          
-        int i=0, j=0,ans=-1;
-        
-        while(j<n&&i<n)
+    { 
+        int ans=0, maxi=0;
+        int i=0, j=n-1;
+        while(i<=j)
         {
-            if(left_min[i]<=right_max[j])
+            if(arr[i]<=arr[j])
             {
-                ans=max(ans, j-i);
-                j++;
-            }
-            else
+                maxi=j-i;
+                if(maxi>ans)
+                  ans=maxi;
                 i++;
+                j=n-1;
+            }
+            
+            else
+              j--;
+              
         }
         
         return ans;
-          
     }
-
 };
 
-
 // { Driver Code Starts.
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, i;
-        cin >> n;
-        int a[n];
-        for (i = 0; i < n; i++) {
-            cin >> a[i];
-        }
+  
+/* Driver program to test above functions */
+int main() 
+{
+    int T;
+    //testcases
+    cin>>T;
+    while(T--){
+        int num;
+        //size of array
+        cin>>num;
+        int arr[num];
+        
+        //inserting elements
+        for (int i = 0; i<num; i++)
+            cin>>arr[i];
         Solution ob;
-        auto ans = ob.maxIndexDiff(a, n);
-        cout << ans << "\n";
+        
+        //calling maxIndexDiff() function
+        cout<<ob.maxIndexDiff(arr, num)<<endl;    
+        
     }
     return 0;
-}  // } Driver Code Ends
+}   // } Driver Code Ends
