@@ -13,7 +13,7 @@
 class Solution{
     public:
     
-    int kthSmallest(TreeNode* root, int k)
+   /* int kthSmallest(TreeNode* root, int k)
     {
         stack<TreeNode*> st;
         while(!st.empty()||root)
@@ -35,10 +35,8 @@ class Solution{
         }
         
         return -1;
-    }
-};
-/*
-class Solution {
+    }  */
+    
     
     int res;
     
@@ -58,4 +56,4 @@ public:
         in(root, k);
         return res;
     }
-}; */
+}; 
