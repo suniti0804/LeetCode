@@ -10,7 +10,7 @@ class Solution{
     // N : Size of the Array arr[]
     // Function to count inversions in the array.
     
-    long long merge(long long arr[], long long temp[], int l, int m, int r)
+    long long merge(long long arr[],long long temp[], int l, int m, int r)
     {
         long long int count = 0;
         
@@ -44,6 +44,7 @@ class Solution{
     long long int mergeSort(long long arr[], long long temp[], int l, int r)
     {
         long long int count = 0;
+        
         if(r > l)
           {
               long long int m = l + (r - l)/2;
@@ -52,13 +53,12 @@ class Solution{
               count += merge(arr, temp, l, m , r);
               
           }
-          
         return count;  
     }
     
     long long int inversionCount(long long arr[], long long N)
     {
-        long long int temp[N];
+        long long temp[N];
         return mergeSort(arr, temp, 0, N - 1);
     }
 
