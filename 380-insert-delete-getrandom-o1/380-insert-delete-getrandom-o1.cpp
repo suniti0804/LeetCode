@@ -21,8 +21,8 @@ public:
         if(mp.find(val)==mp.end())
             return false;
         int l=nums.back();
-        mp[l]=mp[val];
         nums[mp[val]]=l;
+        mp[l]=mp[val];
         nums.pop_back();
         mp.erase(val);
         return true;   
@@ -30,7 +30,7 @@ public:
     
     int getRandom() 
     {
-         return nums[rand() % nums.size()];
+         return nums[rand()%nums.size()];
     }
 };
 
