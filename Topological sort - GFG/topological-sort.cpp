@@ -7,15 +7,14 @@ class Solution
 {
 	public:
 	//Function to return list containing vertices in Topological order. 
-void sort(int v, int V, vector<int> adj[], vector<int>& vis, stack<int>& st)
+void sort(int v, vector<int> adj[], vector<int>& vis, stack<int>& st)
 	{
 	    vis[v]=true;
 	   
-	    
 	    for(auto u:adj[v])
 	    {
 	        if(!vis[u])
-	          sort(u, V, adj, vis, st);
+	          sort(u, adj, vis, st);
 	    }
 	    
 	     st.push(v);
@@ -31,7 +30,7 @@ void sort(int v, int V, vector<int> adj[], vector<int>& vis, stack<int>& st)
 	    for(int i=0; i<V; i++)
 	    {
 	        if(!vis[i])
-	          sort(i, V, adj, vis, st);
+	          sort(i, adj, vis, st);
 	    }
 	    
 	    while(!st.empty())
