@@ -4,7 +4,7 @@ public:
     {
         int n=s.size();
         vector<bool> t(n+1, false);
-        t[0]=true;
+        t[0]=1;
         
         for(int i=1; i<=n; i++)
         {
@@ -22,7 +22,7 @@ public:
                 }
             }
         }
-        return t[n];
         
+        return t[n];
     }
 };
