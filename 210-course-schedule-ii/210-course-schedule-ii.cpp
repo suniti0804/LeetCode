@@ -21,15 +21,13 @@ public:
     
     vector<int> findOrder(int num, vector<vector<int>>& edges) 
     {
-        vector<int> res;
-        vector<int> vis(num, 0);
-    
-        int n=edges.size();
         vector<int> adj[num+1]; //vector<vector<int>> adj(n+1);
-        
         for(auto e:edges)
             adj[e[0]].push_back(e[1]);
 	    
+        vector<int> res;
+        vector<int> vis(num, 0);
+
 	    for(int i=0; i<num; i++)
 	    {
 	        if(!vis[i])
