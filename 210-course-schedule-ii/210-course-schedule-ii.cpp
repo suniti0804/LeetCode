@@ -23,8 +23,7 @@ public:
     {
         vector<int> res;
         vector<int> vis(num, 0);
-        stack<int> st;
-        
+    
         int n=edges.size();
         vector<int> adj[num+1]; //vector<vector<int>> adj(n+1);
         
