@@ -1,20 +1,20 @@
 class Solution {
 public:
     
-    bool isCyclic(int u, vector<int> adj[], vector<int>& vis)
+    bool isCyclic(int v, vector<int> adj[], vector<int>& vis)
     {
-        if(vis[u]==1)
-            return true;
-        else if(vis[u]==0)
+        vis[v]=1;
+        for(auto u:adj[v])
         {
-            vis[u]=1;
-            for(auto v:adj[u])
-                if(isCyclic(v, adj, vis))
-                    return true;
+            if(vis[u]==1)
+                return true;
+            
+            if(vis[u]==0)
+              if(isCyclic(u, adj, vis))
+                  return true;
         }
-       
-        
-        vis[u]=2;
+
+        vis[v]=2;
         return false;
     }
     
