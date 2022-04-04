@@ -10,27 +10,32 @@
  */
 class Solution {
 public:
+    //1.keep on merging two lists 
+    //2.use of priority queue
     ListNode* mergeKLists(vector<ListNode*>& lists) 
     {
         priority_queue<int, vector<int>, greater<int>> minh;
-        for(int i = 0; i < lists.size(); i++)
+        
+        for(int i=0; i<lists.size(); i++)
         {
-            ListNode* head = lists[i];
-            while(head != NULL)
+            ListNode* curr=lists[i];
+            while(curr)
             {
-                minh.push(head -> val);
-                head = head -> next;
+                minh.push(curr->val);
+                curr=curr->next;
             }
         }
-        ListNode* dummy = new ListNode(0);
-        ListNode* head = dummy;
+        
+        ListNode* res=new ListNode(-1);
+        ListNode* curr=res;
         while(!minh.empty())
         {
-            head -> next = new ListNode(minh.top());
+            curr->next=new ListNode(minh.top());
+            curr=curr->next;
             minh.pop();
-            head = head -> next;
         }
-       return dummy -> next; 
+        
+        return res->next;
         
     }
 };
