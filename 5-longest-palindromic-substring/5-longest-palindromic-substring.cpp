@@ -1,12 +1,12 @@
 class Solution {
 public:
     
-    /*string longestPalindrome(string str)
+    string longestPalindrome(string str)
     {
         int n=str.size();
         if(n<=1)
             return str;
-        int maxLen=1, start=0, end=0;
+        int maxLen=1, start=0;
         
         //odd length
         for(int i=0; i<n-1; i++)
@@ -23,7 +23,7 @@ public:
             {
                 maxLen=len;
                 start=l+1;
-                end=r-1;
+                //end=r-1;
             }
         }
         
@@ -42,13 +42,13 @@ public:
             {
                 maxLen=len;
                 start=l+1;
-                end=r-1;
+                //end=r-1;
             }
         }
         
         return str.substr(start, maxLen);
-    } */
-    
+    } 
+    /*
     string longestPalindrome(string str) 
     {
         int n=str.size();
@@ -85,4 +85,5 @@ public:
         
         return str.substr(start, maxLen);
     } 
+    */
 };
