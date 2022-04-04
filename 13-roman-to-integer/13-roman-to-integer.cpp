@@ -33,15 +33,13 @@ public:
             {
                 res+=b-a;
                 i+=2;
-            }    
+            }
             else
             {
                 res+=a;
                 i++;
-            }    
-            
+            }
         }
         return res;
-        
     }
 };
