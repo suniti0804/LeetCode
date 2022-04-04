@@ -3,15 +3,16 @@ public:
     int lengthOfLongestSubstring(string s) 
     {
         int res=0;
-        vector<int> index(256, -1);
+        vector<int> map(256, -1);
         int j=0;
         
         for(int i=0; i<s.size(); i++)
         {
-            j=max(j, index[s[i]]+1);
+            j=max(j, map[s[i]]+1);
             res=max(res, i-j+1);
-            index[s[i]]=i;
+            map[s[i]]=i;
         }
+        
         return res;
         
     }
