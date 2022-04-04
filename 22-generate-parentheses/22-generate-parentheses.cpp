@@ -9,7 +9,7 @@ public:
             return;
         }
         
-        if(open!=0)
+        if(open>0)
         {
             string str1=curr;
             str1.push_back('(');
