@@ -1,14 +1,14 @@
 class Solution {
 public:
     
-    
-    string longestPalindrome(string str)
+    /*string longestPalindrome(string str)
     {
         int n=str.size();
         if(n<=1)
             return str;
         int maxLen=1, start=0, end=0;
         
+        //odd length
         for(int i=0; i<n-1; i++)
         {
             int l=i, r=i;
@@ -27,6 +27,7 @@ public:
             }
         }
         
+        //even length
         for(int i=0; i<n-1; i++)
         {
             int l=i, r=i+1;
@@ -46,9 +47,9 @@ public:
         }
         
         return str.substr(start, maxLen);
-    }
+    } */
     
-    /*string longestPalindrome(string str) 
+    string longestPalindrome(string str) 
     {
         int n=str.size();
         vector<vector<int>> t(n, vector<int>(n, 0));
@@ -82,9 +83,6 @@ public:
             }
         }
         
-        string res="";
-        for(int i=start; i<start+maxLen; i++)
-            res+=str[i];
-        return res;
-    }  */
+        return str.substr(start, maxLen);
+    } 
 };
