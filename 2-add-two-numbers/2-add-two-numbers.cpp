@@ -14,14 +14,18 @@ public:
     {
         ListNode* res=NULL;
         ListNode* temp=NULL;
-        int carry=0;
         
+        int carry=0;
         while(l1||l2||carry)
         {
-            int a=l1?l1->val:0;
-            int b=l2?l2->val:0;
+            int a=0, b=0;
+            if(l1)
+                a=l1->val;
+            if(l2)
+                b=l2->val;
             
             int sum=a+b+carry;
+            
             if(res==NULL)
             {
                 res=new ListNode(sum%10);
@@ -32,8 +36,8 @@ public:
                 temp->next=new ListNode(sum%10);
                 temp=temp->next;
             }
-            carry=sum/10;
             
+            carry=sum/10;
             if(l1)
                 l1=l1->next;
             if(l2)
@@ -41,6 +45,6 @@ public:
         }
         
         return res;
-       
+        
     }
 };
