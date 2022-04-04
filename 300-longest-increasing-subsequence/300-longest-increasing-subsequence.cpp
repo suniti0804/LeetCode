@@ -11,10 +11,11 @@ public:
                 res.push_back(nums[i]);
             else
             {
-                auto it=lower_bound(res.begin(), res.end(), nums[i]);
-                *it=nums[i];
+                int index=lower_bound(res.begin(), res.end(), nums[i])-res.begin();
+                res[index]=nums[i];
             }
         }
+        
         return res.size();
     }
 };
