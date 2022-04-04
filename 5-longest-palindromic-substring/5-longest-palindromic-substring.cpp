@@ -1,6 +1,54 @@
 class Solution {
 public:
-    string longestPalindrome(string str) 
+    
+    
+    string longestPalindrome(string str)
+    {
+        int n=str.size();
+        if(n<=1)
+            return str;
+        int maxLen=1, start=0, end=0;
+        
+        for(int i=0; i<n-1; i++)
+        {
+            int l=i, r=i;
+            while(l>=0&&r<n&&str[l]==str[r])
+            {
+                l--;
+                r++;
+            }
+            
+            int len=r-l-1;
+            if(len>maxLen)
+            {
+                maxLen=len;
+                start=l+1;
+                end=r-1;
+            }
+        }
+        
+        for(int i=0; i<n-1; i++)
+        {
+            int l=i, r=i+1;
+            while(l>=0&&r<n&&str[l]==str[r])
+            {
+                l--;
+                r++;
+            }
+            
+            int len=r-l-1;
+            if(len>maxLen)
+            {
+                maxLen=len;
+                start=l+1;
+                end=r-1;
+            }
+        }
+        
+        return str.substr(start, maxLen);
+    }
+    
+    /*string longestPalindrome(string str) 
     {
         int n=str.size();
         vector<vector<int>> t(n, vector<int>(n, 0));
@@ -38,5 +86,5 @@ public:
         for(int i=start; i<start+maxLen; i++)
             res+=str[i];
         return res;
-    }
+    }  */
 };
