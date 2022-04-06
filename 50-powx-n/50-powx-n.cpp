@@ -2,16 +2,17 @@ class Solution {
 public:
     double myPow(double x, int n) 
     {
-        double ans = 1; // Initialize result
-        long y=abs((long)n);
-        while(y>0) 
+        double res=1;
+        long y=abs((long)(n));
+        
+        while(y)
         {
-            // If y is odd, multiply x with result
             if(y&1)
-                ans=ans*x;
-            x=x*x; // Change x to x^2
-            y>>=1;  //right shift, divided by 2
+                res*=x;
+            x=x*x;
+            y>>=1;
         }
-        return n<0?1/ans:ans;
+        
+        return n>0?res:(1/res);
     }
 };
