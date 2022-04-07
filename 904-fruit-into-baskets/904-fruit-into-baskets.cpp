@@ -13,7 +13,8 @@ public:
                 fruit1=fruits[j];
                 continue;
             }
-            if(fruit1==fruits[j])
+            
+            if(fruits[j]==fruit1)
                 continue;
             
             if(fruit2==-1)
@@ -21,7 +22,7 @@ public:
                 fruit2=fruits[j];
                 continue;
             }
-            if(fruit2==fruits[j])
+            if(fruits[j]==fruit2)
                 continue;
             
             res=max(res, j-i);
