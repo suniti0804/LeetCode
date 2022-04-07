@@ -28,7 +28,6 @@ public:
                 i++;
             while(i<n)
                 curr+=str[i++];
-            //cout<<curr<<" ";
             mp[curr]++;
         }
         
