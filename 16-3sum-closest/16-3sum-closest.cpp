@@ -20,13 +20,6 @@ public:
                     ans=sum;
                 }
                 
-                else if(abs(sum-target)==prev_diff&&(sum>ans))
-                {
-                    ans=sum;
-                    j++;
-                    k--;
-                }
-                
                 if(sum<target)
                     j++;
                 else
