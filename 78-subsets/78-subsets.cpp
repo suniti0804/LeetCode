@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<vector<int>> subsets(vector<int>& nums) {
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
         vector<vector<int>> res;
         int n=nums.size();
         
@@ -17,5 +18,6 @@ public:
         }
         
         return res;
+        
     }
 };
