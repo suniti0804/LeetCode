@@ -1,35 +1,37 @@
 class Solution {
 public:
     
-   bool dfs(vector<vector<char>>& board, int i, int j, string& word)
-    {
-        if(word.size() == 0)  //without this line error
-            return true;
-        if(i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || 
-          board[i][j] != word[0])
+   bool dfs(vector<vector<char>>& board, string word, int i, int j, int idx) 
+   {
+        if(idx==word.size()) 
+            return true; 
+        
+        if(i<0||i>=board.size()||j<0||j>=board[i].size()||board[i][j]!=word[idx]) 
             return false;
         
-        char ch = board[i][j];
-        board[i][j] = '*';
-        string s = word.substr(1);
-        bool res = dfs(board, i-1, j, s) || dfs(board, i+1, j, s) || dfs(board, i, j-1, s) || dfs(board, i, j+1, s);
+        board[i][j] = '0';
+        idx++;
         
-        board[i][j] = ch;
-        return res;
+        bool status =   dfs(board, word, i+1, j, idx) ||  //down
+                        dfs(board, word, i, j+1, idx) ||  //right
+                        dfs(board, word, i-1, j, idx) ||  //up
+                        dfs(board, word, i, j-1, idx);  //left
+        
+        board[i][j]=word[idx-1];
+		
+        return status;
     }
     
     bool exist(vector<vector<char>>& board, string word) 
     {
-        int m = board.size();
-        int n = board[0].size();
+        if(word=="") 
+            return false;
         
-        for(int i = 0; i < m; i++)
+        for(int i=0; i<board.size(); i++) 
         {
-            for(int j = 0; j < n; j++)
-            {
-                if(dfs(board, i, j, word))
+            for(int j=0; j<board[i].size(); j++) 
+                if(board[i][j]==word[0]&&dfs(board, word, i, j, 0))
                     return true;
-            }
         }
         
         return false;
