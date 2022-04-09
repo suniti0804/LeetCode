@@ -12,25 +12,18 @@ public:
             for(int j=0; j<n; j++)
             {
                 if(j>0&&j<n-1)
-                {
-                    t[i][j]=min(t[i-1][j-1]+matrix[i][j], t[i-1][j]+matrix[i][j]);
-                    t[i][j]=min(t[i-1][j+1]+matrix[i][j], t[i][j]);
-                }
+                   t[i][j]=min(t[i][j], matrix[i][j]+min(t[i-1][j-1], min(t[i-1][j], t[i-1][j+1])));
+                   
                 else if(j==0)
-                    t[i][j]=min(t[i-1][j+1]+matrix[i][j], t[i-1][j]+matrix[i][j]);
+                    t[i][j]=matrix[i][j]+min(t[i-1][j+1], t[i-1][j]);
                 
                 else if(j==n-1)
-                    t[i][j]=min(t[i-1][j-1]+matrix[i][j], t[i-1][j]+matrix[i][j]);
-                
+                    t[i][j]=matrix[i][j]+min(t[i-1][j-1], t[i-1][j]);
             }
         }
             
-            int ans=INT_MAX;
-            for(auto &x:t[n-1])
-                    ans=min(ans,x);
-            
-            return ans;
 
-        
+        return *min_element(t[n-1].begin(), t[n-1].end());
+         
     }
 };
