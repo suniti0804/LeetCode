@@ -9,6 +9,7 @@ public:
             mp[i]++;
         
         vector<vector<int>> freq(nums.size()+1);
+        //vector<int> freq[nums.size()+1];
         
         for(auto i:mp)
             freq[i.second].push_back(i.first);
