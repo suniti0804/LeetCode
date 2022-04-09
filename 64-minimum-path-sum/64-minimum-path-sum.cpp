@@ -13,7 +13,7 @@ public:
         
         for (int i=1; i<m; i++)
             for (int j=1; j<n; j++)
-                t[i][j]=min(t[i-1][j], t[i][j-1])+grid[i][j];
+                t[i][j]=grid[i][j]+min(t[i-1][j], t[i][j-1]);
         
         return t[m-1][n-1];
     }
