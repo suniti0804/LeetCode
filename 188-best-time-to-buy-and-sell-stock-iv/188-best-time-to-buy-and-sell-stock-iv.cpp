@@ -2,33 +2,27 @@ class Solution {
 public:
     int maxProfit(int k, vector<int>& prices) 
     {
-        int n = prices.size();
-        if(n == 0)
-            return 0;
-        int t[k + 1][n];
+        int n=prices.size();
+        if (k>=n/2) //if k>=n/2,then can make maximum number of transactions
+        { 
+            int profit = 0;
+            for (int i = 1; i < prices.size(); i++)
+                if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];
+                    return profit;
+        }
         
-        for(int i = 0; i <= k; i++)
+       vector<int> buy(k+1,INT_MAX);
+       vector<int> sell(k+1,0);
+
+        for (auto price:prices) 
         {
-            for(int j = 0; j < n; j++)
+            for (int i=1; i<=k; i++) 
             {
-                if(i == 0 || j == 0)
-                    t[i][j] = 0;
+                buy[i]=min(buy[i], price-sell[i-1]);
+                sell[i]=max(sell[i], price-buy[i]);
             }
         }
         
-        for(int i = 1; i <= k; i++)  //no of transactions
-        {
-            int maxi = INT_MIN;
-            for(int j = 1; j < n; j++)   //jth day
-            {
-                maxi = max(maxi, t[i - 1][j - 1] - prices[j - 1]);
-                
-                t[i][j] = max(t[i][j - 1], prices[j] + maxi);
-            }
-        }
-        
-        return t[k][n - 1];
-                
-        
+        return sell[k];
     }
 };
