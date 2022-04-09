@@ -16,7 +16,7 @@ public:
             else
                 ctr=0;
             
-            res+=ctr;
+            res+=ctr;  //because all the subarrays are to be calculated
         }
         
         return res;
