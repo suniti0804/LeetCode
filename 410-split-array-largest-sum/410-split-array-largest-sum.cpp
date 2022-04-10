@@ -1,46 +1,43 @@
 class Solution {
 public:
     
-    bool isValid(int mid, vector<int>& nums, int m)
+    bool isValid(vector<int>& nums, int mid, int m)
     {
+        int sum=0;
         int ctr=1;
-        int curr=0;
         
-        for(auto n:nums)
+        for(int i=0; i<nums.size(); i++)
         {
-            if(curr+n<=mid)
-                curr+=n;
-            else
+            sum+=nums[i];
+            if(sum>mid)
             {
-                curr=n;
+                sum=nums[i];
                 ctr++;
             }
-            
-            if(ctr>m)
-                return false;
         }
         
-        return true;
+        return ctr<=m;
     }
     
     int splitArray(vector<int>& nums, int m) 
     {
+        int n=nums.size();
         int res=0;
-        int s=*max_element(nums.begin(), nums.end());
-        int e=0;
+        int lo=*max_element(nums.begin(), nums.end());
+        int hi=0;
         for(auto n:nums)
-            e+=n;
+            hi+=n;
         
-        while(s<=e)
+        while(lo<=hi)
         {
-            int mid=s+(e-s)/2;
-            if(isValid(mid, nums, m))
+            int mid=lo+(hi-lo)/2;
+            if(isValid(nums, mid, m))
             {
                 res=mid;
-                e=mid-1;
+                hi=mid-1;
             }
             else
-                s=mid+1;
+                lo=mid+1;
         }
         
         return res;
