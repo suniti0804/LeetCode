@@ -8,7 +8,8 @@ public:
         long long int j = m + 1;
         long long int k = 0;
         
-        while(i <= m && j <= r)
+        //sorting is done in descending order
+        while(i<=m && j<=r)
          {
              if(v[i].first<=v[j].first)
                temp[k++] = v[j++];
