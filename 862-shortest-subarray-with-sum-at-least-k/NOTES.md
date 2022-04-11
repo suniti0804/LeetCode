@@ -1,1 +1,1 @@
-​
+* Line no 14 - This is because in the starting, the deque is empty so if we didn't include this may miss out on things when the nums[0] itself is >=k
