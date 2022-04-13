@@ -11,6 +11,7 @@ using namespace std;
 class Solution{
     
     public:
+    //smallest number on right
     vector<int> help_classmate(vector<int> arr, int n) 
     {
         vector<int> res;
@@ -20,9 +21,7 @@ class Solution{
         
         for(int i=n-1; i>=0; i--)
         {
-            if(st.empty())
-               res.push_back(-1);
-            else if(st.top()<arr[i])
+            if(st.top()<arr[i])
                res.push_back(st.top());
             else
             {
