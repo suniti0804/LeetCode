@@ -71,12 +71,8 @@ public:
     int minCostConnectPoints(vector<vector<int>>& points) 
     {
         int n=points.size();
-		set<pair<int, int>> vis;  //visited and non-visited sets are used to consider the points int the MST and remaining
-        //for(int i=0;i<n;i++) 
-            //unvis.insert({points[i][0],points[i][1]});  //All points in un-visited
-
-		//Priority queue is having distance as key(from growing MST) and pair<int,int> for coordinates in graph
-         priority_queue<ppi, vector<ppi>, greater<ppi>> pq;
+		set<pair<int, int>> vis; 
+        priority_queue<ppi, vector<ppi>, greater<ppi>> pq;
 
         int ans=0; 
         pq.push({0, {points[0][0], points[0][1]}});  
@@ -84,12 +80,13 @@ public:
         while(!pq.empty())
         {
             auto curr=pq.top(); 
-            pq.pop();  //minimum distance coordinate/vertex from growing ST.
+            pq.pop();  
             if(vis.find({curr.second.first, curr.second.second})!=vis.end()) 
                 continue; 
             vis.insert({curr.second.first, curr.second.second}); 
         
-			for(int j=0; j<n; j++)   // now consider only those vertices which have not been visited before
+			for(int j=0; j<n; j++)   
+               
             {
                 if(vis.find({points[j][0], points[j][1]})==vis.end())
                 {
