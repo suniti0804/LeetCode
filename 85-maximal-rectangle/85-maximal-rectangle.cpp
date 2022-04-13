@@ -1,47 +1,40 @@
 class Solution {
 public:
     
-    int maxHist(vector<int> heights)
+    int solve(vector<int>& heights)
     {
         heights.push_back(0);
         int n=heights.size();
+        int res=0, width;
         stack<int> st;
-        int res=0;
-        int width;
         
         int i=0;
         while(i<n)
         {
             if(st.empty()||heights[i]>=heights[st.top()])
-              st.push(i++);
-    
+                st.push(i++);
             else
-             {
-                while(!st.empty()&&heights[st.top()]>=heights[i])
-                {
-                    int top=st.top();
-                    st.pop();
+            {
+                int k=st.top();
+                st.pop();
 
-                    if(st.empty())
-                         width=i;
-                    else
-                        width=i-st.top()-1;
+                if(st.empty())
+                    width=i;
+                else
+                    width=i-st.top()-1;
 
-                    res=max(res, heights[top]*width);
-                }
-                
-             }
+                res=max(res, heights[k]*width);
+            }
         }
         
-        return res; 
-        
+        return res;
     }
     
     int maximalRectangle(vector<vector<char>>& matrix) 
     {
         int n=matrix[0].size();
-        vector<int> heights(n, 0);
         int res=0;
+        vector<int> heights(n, 0);
         
         for(int i=0; i<matrix.size(); i++)
         {
@@ -52,8 +45,7 @@ public:
                 else
                     heights[j]=0;
             }
-            
-            res=max(res, maxHist(heights));
+            res=max(res, solve(heights));
         }
         
         return res;
