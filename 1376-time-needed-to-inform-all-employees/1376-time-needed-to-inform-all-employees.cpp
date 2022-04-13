@@ -12,8 +12,8 @@ public:
     
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) 
     {
-        vector<vector<int>> v;
-        v.resize(n);
+        vector<vector<int>> v(n);
+        //v.resize(n);
         for(int i=0; i<n; i++)
             if(manager[i]!=-1)
                 v[manager[i]].push_back(i);
