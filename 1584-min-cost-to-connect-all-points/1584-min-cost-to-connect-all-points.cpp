@@ -1,3 +1,5 @@
+typedef pair<int, pair<int, int>> ppi;
+
 class Solution {
 public:
     
@@ -65,36 +67,40 @@ public:
     
     //Prim's
 
+    //typedef pair<int, pair<int, int>> ppi;
     int minCostConnectPoints(vector<vector<int>>& points) 
     {
         int n=points.size();
-		
-		set<pair<int, int>> vis,unvis;  //visited and non-visited sets are used to consider the points int the MST and remaining
-        for(int i=0;i<n;i++) 
-            unvis.insert({points[i][0],points[i][1]});  //All points in un-visited
+		set<pair<int, int>> vis;  //visited and non-visited sets are used to consider the points int the MST and remaining
+        //for(int i=0;i<n;i++) 
+            //unvis.insert({points[i][0],points[i][1]});  //All points in un-visited
 
 		//Priority queue is having distance as key(from growing MST) and pair<int,int> for coordinates in graph
-         priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+         priority_queue<ppi, vector<ppi>, greater<ppi>> pq;
 
         int ans=0; 
-        pq.push({0, points[0][0], points[0][1]});  
+        pq.push({0, {points[0][0], points[0][1]}});  
         
-        while(!pq.empty()&&vis.size()<n)
+        while(!pq.empty())
         {
             auto curr=pq.top(); 
             pq.pop();  //minimum distance coordinate/vertex from growing ST.
-            if(vis.find({curr[1], curr[2]})!=vis.end()) 
+            if(vis.find({curr.second.first, curr.second.second})!=vis.end()) 
                 continue; 
-            vis.insert({curr[1], curr[2]}); 
-            unvis.erase({curr[1], curr[2]}); //remove from unvis and insert into vis (like boolean marking)
-
-			for(auto itr:unvis)   // now consider only those vertices which have not been visited before
+            vis.insert({curr.second.first, curr.second.second}); 
+        
+			for(int j=0; j<n; j++)   // now consider only those vertices which have not been visited before
             {
-                int dist=abs(curr[1]-itr.first)+abs(curr[2]-itr.second);
-                pq.push({dist,itr.first,itr.second});
+                if(vis.find({points[j][0], points[j][1]})==vis.end())
+                {
+                    int x=points[j][0];
+                    int y=points[j][1];
+                    int dist=abs(curr.second.first-x)+abs(curr.second.second-y);
+                    pq.push({dist, {x, y}});
+                }    
             }
 			
-            ans+=curr[0];
+            ans+=curr.first;
         }
         return ans;
     }  
