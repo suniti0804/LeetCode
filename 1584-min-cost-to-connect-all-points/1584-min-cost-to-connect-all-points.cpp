@@ -64,7 +64,7 @@ public:
     }  */
     
     //Prim's
-    
+    /*
     int minCostConnectPoints(vector<vector<int>>& points) 
     {
         int n=points.size();
@@ -97,6 +97,26 @@ public:
             ans+=curr[0];
         }
         return ans;
+    }  */
+    
+    int minCostConnectPoints(vector<vector<int>>& ps) 
+    {
+        int n = ps.size(), res = 0, i = 0, connected = 0;
+        vector<bool> vis(n);
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+        while (++connected < n) 
+        {
+            vis[i]=true;
+            for (int j=0; j<n; ++j)
+                if (!vis[j])
+                    pq.push({(abs(ps[i][0]-ps[j][0])+abs(ps[i][1]-ps[j][1])), j});
+            while (vis[pq.top()[1]])
+                pq.pop();
+            res += pq.top()[0];
+            i = pq.top()[1];
+            pq.pop();
+        }
+        return res;
     }
     
 };
