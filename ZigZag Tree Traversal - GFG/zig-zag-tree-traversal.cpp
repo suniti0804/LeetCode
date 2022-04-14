@@ -130,7 +130,7 @@ class Solution{
             
             if(flag)
               reverse(res.begin()+k, res.end());
-            flag=!flag;  
+            flag=!flag;
         }
         
         return res;
