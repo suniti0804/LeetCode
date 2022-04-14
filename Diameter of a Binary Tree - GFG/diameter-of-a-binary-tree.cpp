@@ -102,9 +102,11 @@ class Solution {
         int l=dia(root->left, res);
         int r=dia(root->right, res);
         
-        int temp=max(l,r)+1;
-        res=max(res,l+r+1);
-        return temp;
+        int temp=max(l,r)+1; //when dia is not passing through current node
+        int ans=max(temp, l+r+1); //when dia will pass through the current node
+        
+        res=max(res, ans);
+        return temp;  //because dia is not passing through temp
     }
     
     int diameter(Node* root) 
