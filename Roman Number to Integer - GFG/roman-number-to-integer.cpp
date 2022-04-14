@@ -34,8 +34,7 @@ class Solution {
     {
         int res=0;
         int n=str.size();
-        if(n==1)
-          return val(str[0]);
+
         int i=0;
         while(i<n)
         {
