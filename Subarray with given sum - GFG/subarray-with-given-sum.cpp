@@ -12,23 +12,20 @@ class Solution
     {
         long long curr_sum=0;
         int start=0;
+        
         for(int i=0; i<n; i++)
         {
-            curr_sum+=arr[i];
-            //cout<<curr_sum<<"\n";
-            if(curr_sum==s)
-              return {start+1, i+1};
-            else if(curr_sum>s)
-            {
-                while(curr_sum>s)
-                {
-                    curr_sum-=arr[start];
-                    start++;
-                }
-                if(curr_sum==s)
-                  return {start+1, i+1};
-            }
+              curr_sum+=arr[i];
+              if(curr_sum>s)
+              {
+                  while(curr_sum>s&&start<=i)
+                    curr_sum-=arr[start++];
+              }
+              
+              if(curr_sum==s)
+                return {start+1, i+1};
         }
+        
         return {-1};
     }
 };
