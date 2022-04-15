@@ -14,13 +14,13 @@ public:
   
     int res=0;
     
-    int findPath(TreeNode* root, int curr_val)
+    int solve(TreeNode* root, int curr_val)
     {
         if(!root)
             return 0;
         
-        int l=findPath(root->left, root->val);
-        int r=findPath(root->right, root->val);
+        int l=solve(root->left, root->val);
+        int r=solve(root->right, root->val);
         
         res=max(res, r+l);
         
@@ -32,7 +32,7 @@ public:
     
     int longestUnivaluePath(TreeNode* root) 
     {
-        findPath(root,INT_MIN);
+        solve(root,INT_MIN);
         return res;
     }
 };
