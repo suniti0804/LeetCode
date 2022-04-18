@@ -13,7 +13,7 @@ class Solution {
 public:
     
     //iterative dfs
-   /* int sumNumbers(TreeNode* root) 
+   int sumNumbers(TreeNode* root) 
     {
         stack<pair<TreeNode*, int>> st;      // {node, cur}
         st.push({root, 0});
@@ -23,19 +23,27 @@ public:
         {
             auto curr=st.top();
             st.pop();
-            curr.second=curr.second*10+root->val;
-            if(!curr.first->left&&!curr.first->right) 
-                sum+=curr.second;  // reached leaf node
-            if(curr.first->right) 
-                s.push({curr.first->right, curr});
-            if(curr.first-> left) 
-                s.push({curr.first-> left, curr});
+            
+            TreeNode* node=curr.first;
+            int t=curr.second;
+            
+            t=t*10+node->val;
+            
+            if(!node->left&&!node->right) 
+                sum+=t;  // reached leaf node
+            
+            if(node->right) 
+                st.push({node->right, t});
+            
+            if(node->left) 
+                st.push({node->left, t});
         }
+       
         return sum;
-    }  */
+    }  
     
     //preorder dfs traversal
-    int dfs(TreeNode* root, int curr) 
+    /*int dfs(TreeNode* root, int curr) 
     {
         if(!root) 
             return 0;
@@ -51,6 +59,6 @@ public:
     int sumNumbers(TreeNode* root) 
     {
         return dfs(root, 0);
-    }
+    }  */
     
 };
