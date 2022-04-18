@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     static bool comp(const vector<int>& a, const vector<int>& b)
     {
         if(a[0]==b[0])
@@ -24,8 +23,5 @@ public:
         }
         
         return res;
-        
-        
-        
     }
 };
