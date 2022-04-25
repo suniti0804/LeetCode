@@ -3,16 +3,16 @@ public:
     int minSubArrayLen(int target, vector<int>& nums) 
     {
         int n=nums.size();
-        int sum=0, j=0;
-        int res=INT_MAX;
+        int curr_sum=0, res=INT_MAX;
+        int start=0;
         
         for(int i=0; i<n; i++)
         {
-            sum+=nums[i];
-            while(sum>=target)
+            curr_sum+=nums[i];
+            while(curr_sum>=target)
             {
-                res=min(res, i-j+1);
-                sum-=nums[j++];
+                res=min(res, i-start+1);
+                curr_sum-=nums[start++];
             }
         }
         
