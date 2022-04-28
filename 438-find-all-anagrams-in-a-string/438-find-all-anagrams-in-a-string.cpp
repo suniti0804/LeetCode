@@ -7,7 +7,8 @@ public:
         int m=s.size(), n=p.size();
         if(m<n)
             return {};
-        vector<int> freq_s(26,0), freq_p(26,0);
+        vector<int> freq_s(26,0), freq_p(26,0);  
+        //when comparing two maps, use vectors and not hashmaps
         
         for(int i=0; i<n; i++)
         {
