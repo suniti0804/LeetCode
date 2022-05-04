@@ -108,22 +108,23 @@ class Solution {
     // Convert a given tree to a tree where every node contains sum of values of
     // nodes in left and right subtrees in the original tree
     
-    int util(Node* root)
+    int util(Node* node)
     {
-        if(!root)
-            return 0;
-        int sl=util(root->left);
-        int sr=util(root->right);
+        if(!node)
+           return 0;
+        int sl=util(node->left);
+        int sr=util(node->right);
         
-        int sum=root->data;
-        root->data=sl+sr;
+        int curr=node->data;
         
-        return root->data+sum;
+        node->data=sl+sr;
+        
+        return node->data+curr;
     }
     
     void toSumTree(Node *node)
     {
-        util(node);
+       util(node);
     }
 };
 
