@@ -26,7 +26,6 @@ public:
         return {X,Y}; 
     }
     
-    
 };
 
 /**
