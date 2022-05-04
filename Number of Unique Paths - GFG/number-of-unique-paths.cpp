@@ -12,18 +12,19 @@ class Solution
     //Function to find total number of unique paths.
     int NumberOfPath(int a, int b)
     {
-        int t[a][b];
-        
+        vector<vector<int>> t(a, vector<int>(b));
         for(int i=0; i<a; i++)
-          for(int j=0; j<b; j++)
-          {
-              if(i==0||j==0)
-                t[i][j]=1;
-              else
-                t[i][j]=t[i][j-1]+t[i-1][j];
-          }
-          
-        return t[a-1][b-1];  
+        {
+            for(int j=0; j<b; j++)
+            {
+                if(i==0||j==0)
+                  t[i][j]=1;
+                else
+                  t[i][j]=t[i][j-1]+t[i-1][j];
+            }
+        }
+        
+        return t[a-1][b-1];
     }
 };
 
