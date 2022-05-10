@@ -21,7 +21,7 @@ public:
     vector<int> sortedArrayToBST(vector<int>& arr) 
     {
         vector<int> res(arr.size(), 0);
-        int index = 0;
+        int index=0;
         
         arrayToBST(arr, res, 0, arr.size()-1, index);
         
