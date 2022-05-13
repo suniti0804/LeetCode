@@ -6,43 +6,41 @@ using namespace std;
 class Solution {
 public:
 
-   bool dfs(vector<vector<char>>& board, int i, int j, string word, vector<vector<bool>>& vis, int idx)
-   {
+    bool exist(vector<vector<char>>& board, int i, int j, string word, int idx)
+    {
         int m=board.size();
         int n=board[0].size();
         
         if(idx==word.size())
-          return true;
-          
-        if(i<0||i>=m||j<0||j>=n||board[i][j]!=word[idx]||vis[i][j]==true)
+           return true;
+        
+        if(i<0||i>=m||j<0||j>=n||idx>word.size()||board[i][j]=='#'||board[i][j]!=word[idx])
           return false;
           
-        vis[i][j]=true;
+        char ch=board[i][j];  
+        board[i][j]='#';  
         idx++;
-          
-        if(dfs(board, i+1, j, word, vis, idx)||dfs(board, i-1, j, word, vis, idx)||
-           dfs(board, i, j+1, word, vis, idx)||dfs(board, i, j-1, word, vis, idx))
-             return true;
-             
-        vis[i][j]=false;
-        return false;
-   }
-
-    bool isWordExist(vector<vector<char>>& board, string word) {
         
+        if (exist(board, i+1, j, word, idx)||exist(board, i-1, j, word, idx)||
+               exist(board, i, j+1, word, idx)||exist(board, i, j-1, word, idx))
+               return true;
+               
+        board[i][j]=ch;  
+        return false;
+    }
+
+    bool isWordExist(vector<vector<char>>& board, string word) 
+    {
         int m=board.size();
         int n=board[0].size();
         
-        char ch=word[0];
-        vector<vector<bool>> vis(m, vector<bool>(n, false));
-        
-        for(int i=0; i<board.size(); i++)
+        for(int i=0; i<m; i++)
         {
-            for(int j=0; j<board[0].size(); j++)
+            for(int j=0; j<n; j++)
             {
-                if(board[i][j]==ch)
-                  if(dfs(board, i, j, word, vis, 0))
-                   return true;
+                if(board[i][j]==word[0])
+                   if(exist(board, i, j, word, 0))
+                     return true;
             }
         }
         
