@@ -7,13 +7,13 @@ class Solution{
 
   public:
 	int minDifference(int arr[], int n)  
-	{ 
+	{
 	    int sum=0;
 	    for(int i=0; i<n; i++)
-	      sum+=arr[i];
-	      
-	    bool t[n+1][sum+1];
-	    
+	       sum+=arr[i];
+	       
+	    vector<vector<bool>> t(n+1, vector<bool>(sum+1, false));    
+	       
 	    for(int i=0; i<=n; i++)
 	    {
 	        for(int j=0; j<=sum; j++)
@@ -23,26 +23,24 @@ class Solution{
 	            if(j==0)
 	              t[i][j]=true;
 	        }
-	    }
+	    }    
 	    
 	    for(int i=1; i<=n; i++)
 	    {
 	        for(int j=1; j<=sum; j++)
 	        {
-	            if(arr[i-1]<=j)
-	              t[i][j]=t[i-1][j-arr[i-1]]||t[i-1][j];
-	            else
-	              t[i][j]=t[i-1][j];
+                if(arr[i-1]<=j)
+                  t[i][j]=t[i-1][j-arr[i-1]]||t[i-1][j];
+                else
+                  t[i][j]=t[i-1][j];
 	        }
 	    }
 	    
 	    for(int i=sum/2; i>=0; i--)
-	    {
-	        if(t[n][i])
-	          return sum-2*i;
-	    }
-	    
-	    return -1;
+	      if(t[n][i])
+	        return sum-2*i;
+	        
+	   return -1;     
 	} 
 };
 
