@@ -21,13 +21,13 @@ public:
         {
             for (int j=i+1; j<n; j++) 
             { 
-                if (M[i][j]) 
+                if(M[i][j]) 
                 {
-                    int lead1=find(i, parent);
-                    int lead2=find(j, parent);
-                    if (lead1 != lead2) 
+                    int x=find(i, parent);
+                    int y=find(j, parent);
+                    if(x!=y) 
                     {    
-                        parent[lead1]=lead2;
+                        parent[x]=y;
                         ctr--;
                     }
                 }
