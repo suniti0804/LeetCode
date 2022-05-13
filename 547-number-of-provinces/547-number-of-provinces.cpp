@@ -27,7 +27,7 @@ public:
                     int y=find(j, parent);
                     if(x!=y) 
                     {    
-                        parent[x]=y;
+                        parent[y]=x;
                         ctr--;
                     }
                 }
