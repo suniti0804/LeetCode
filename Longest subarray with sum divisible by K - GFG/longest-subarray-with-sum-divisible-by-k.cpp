@@ -23,10 +23,8 @@ public:
         {
             if(mod[i]==0) 
                 res=i+1; 
-             
             else if(mp.find(mod[i])==mp.end()) 
-                mp[mod[i]]=i; 
-                  
+                mp[mod[i]]=i;
             else
                 res=max(res, i-mp[mod[i]]);             
         } 
