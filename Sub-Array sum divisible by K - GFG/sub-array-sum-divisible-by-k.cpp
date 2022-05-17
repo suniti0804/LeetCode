@@ -17,8 +17,7 @@ class Solution{
 	    {
 	        sum+=arr[i];
 	        long long rem=((sum%k)+k)%k;
-	        if(mod[rem]!=0)
-	            ctr+=mod[rem];
+	        ctr+=mod[rem];
 	        mod[rem]++;
 	    }
 	   
