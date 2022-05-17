@@ -8,24 +8,21 @@ class Solution
 	public:
     void permutations(string str, int l, vector<string>& res)
     {
-            if(l==str.size()-1)
-               res.push_back(str);
-            else
-            {
-              for(int i=l; i<str.size(); i++)
-              {
-                swap(str[l], str[i]); //swapping done
-                //sort(str.begin()+l+1, str.end());
-     
-                // Recursion called 
-                permutations(str, l+1, res); 
-     
-                //backtrack 
-                swap(str[l], str[i]); 
-              }
-            } 
-            
+        if(l==str.size()-1)
+        {
+            res.push_back(str);
             return;
+        }  
+        
+        for(int i=l; i<str.size(); i++)
+        {
+            swap(str[l], str[i]); //swapping done
+            permutations(str, l+1, res); //Recursion called 
+            swap(str[l], str[i]); //backtrack
+        }
+         
+        
+        return;
     }      
 	
 		vector<string>find_permutation(string S)
