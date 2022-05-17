@@ -6,34 +6,33 @@ using namespace std;
 class Solution
 {
 	public:
-    void permutations(string str, int l, int r, vector<string>& res)
-        {
-                if(l == r)
-                   res.push_back(str);
-                else
-                {
-                    for(int i = l; i <= r; i++)
-                  {
-                     // Swapping done 
-                        swap(str[l], str[i]); 
-                        //sort(str.begin()+l+1, str.end());
-             
-                        // Recursion called 
-                        permutations(str, l+1, r, res); 
-             
-                        //backtrack 
-                        swap(str[l], str[i]); 
-                  }
-                } 
-                
-              return;
-        }      
+    void permutations(string str, int l, vector<string>& res)
+    {
+            if(l==str.size()-1)
+               res.push_back(str);
+            else
+            {
+              for(int i=l; i<str.size(); i++)
+              {
+                swap(str[l], str[i]); //swapping done
+                //sort(str.begin()+l+1, str.end());
+     
+                // Recursion called 
+                permutations(str, l+1, res); 
+     
+                //backtrack 
+                swap(str[l], str[i]); 
+              }
+            } 
+            
+            return;
+    }      
 	
 		vector<string>find_permutation(string S)
 		{
 		    int n = S.size();
 		    vector<string> res;
-		    permutations(S, 0, n - 1, res);
+		    permutations(S, 0, res);
 		    sort(res.begin(), res.end());
 		    res.erase(unique(res.begin(), res.end()), res.end());
 		    return res;
