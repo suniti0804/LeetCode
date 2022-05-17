@@ -10,18 +10,23 @@ class Solution{
 	{
 	    long long ctr=0;
 	    vector<int> mod(k, 0);
-	    mod[0]=1;
 	    long long sum=0;
 	    
 	    for(int i=0; i<N; i++)
 	    {
 	        sum+=arr[i];
 	        long long rem=((sum%k)+k)%k;
-	        ctr+=mod[rem];
 	        mod[rem]++;
 	    }
-	   
-	   return ctr;
+	    
+	    for(int i=0; i<k; i++)
+	    {
+	        if(mod[i]>1)
+	           ctr+=(mod[i]*(mod[i]-1))/2;
+	    }
+	    
+	    ctr+=mod[0];
+	    return ctr;
 	}
 
 
