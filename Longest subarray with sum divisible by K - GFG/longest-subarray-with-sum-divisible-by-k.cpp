@@ -28,9 +28,7 @@ public:
                 mp[mod[i]]=i; 
                   
             else
-                
-                if(res<(i-mp[mod[i]])) 
-                    res=i-mp[mod[i]];             
+                res=max(res, i-mp[mod[i]]);             
         } 
           
         
