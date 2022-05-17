@@ -6,6 +6,8 @@ using namespace std;
 class Solution{
 
 	public:
+	//So if any sub-array sum from index i’th to j’th is divisible by k 
+	//then we can saya[0]+…a[i-1] (mod k) = a[0]+…+a[j] (mod k)
 	long long subCount(long long arr[], int N, long long k)
 	{
 	    long long ctr=0;
@@ -20,10 +22,8 @@ class Solution{
 	    }
 	    
 	    for(int i=0; i<k; i++)
-	    {
 	        if(mod[i]>1)
 	           ctr+=(mod[i]*(mod[i]-1))/2;
-	    }
 	    
 	    ctr+=mod[0];
 	    return ctr;
