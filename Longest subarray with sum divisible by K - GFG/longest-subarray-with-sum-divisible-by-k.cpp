@@ -10,27 +10,26 @@ public:
 	int longSubarrWthSumDivByK(int arr[], int n, int k)
 	{
 	    unordered_map<int, int> mp;
-	    int mod[n], res = 0;
-	    int curr_sum = 0;
+	    vector<int> mod(n);
+	    int sum=0;
+	    int res=0;
+	    for(int i=0; i<n; i++)
+	    {
+	        sum+=arr[i];
+	        mod[i]=((sum%k)+k)%k;
+	    }
 	    
 	    for(int i=0; i<n; i++)
-	     {
-	         curr_sum+=arr[i];
-	         mod[i]=((curr_sum%k)+k)%k;
-	     }
-	     
-    	for (int i=0; i<n; i++) 
-        {
-            if(mod[i]==0) 
-                res=i+1; 
-            else if(mp.find(mod[i])==mp.end()) 
-                mp[mod[i]]=i;
-            else
-                res=max(res, i-mp[mod[i]]);             
-        } 
-          
-        
-        return res;  
+	    {
+	        if(mod[i]==0)
+	           res=i+1;
+	        else if(mp.find(mod[i])!=mp.end())
+	           res=max(res, i-mp[mod[i]]);
+	        else
+	          mp[mod[i]]=i;
+	    }
+	    
+	    return res;
 	}
 };
 
