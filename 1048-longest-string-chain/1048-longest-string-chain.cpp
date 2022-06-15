@@ -1,6 +1,7 @@
 class Solution {
 public:
     
+    //n^4 solution was there when in isValid function lcs is used.
     bool isValid(string a, string b)
     {
         int m=a.size();
@@ -55,55 +56,4 @@ public:
         }
         return ans;
     }  
-    
-    /*
-    int lcs(string a, string b)
-    {
-        int m=a.size();
-        int n=b.size();
-        
-        vector<vector<int>> t(m+1, vector<int>(n+1, 0));
-        
-        for(int i=0; i<=m; i++)
-        {
-            for(int j=0; j<=n; j++)
-            {
-                if(i==0||j==0)
-                    t[i][j]=0;
-                else if(a[i-1]==b[j-1])
-                    t[i][j]=1+t[i-1][j-1];
-                else
-                    t[i][j]=max(t[i-1][j], t[i][j-1]);
-            }
-        }
-        
-        return t[m][n];
-    }
-    
-    bool static myComp(string& a, string& b)
-    {
-        return a.size()<b.size();
-    }
-    
-    int longestStrChain(vector<string>& words) 
-    {
-        int n=words.size();
-        vector<int> t(n, 1);
-        
-        sort(words.begin(), words.end(), myComp);
-        
-        for(int i=1; i<n; i++)
-        {
-            for(int j=0; j<i; j++)
-            {
-                int m=words[i].size();
-                int n=words[j].size();
-                
-                if(m-n==1&&lcs(words[i], words[j])==n&&t[i]<t[j]+1)
-                    t[i]=t[j]+1;
-            }
-        }
-        
-        return *max_element(t.begin(), t.end());
-    }  */
 };
