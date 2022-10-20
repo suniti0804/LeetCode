@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for C++
 
 
@@ -85,7 +85,7 @@ Node* buildTree(string str) {
 }
 
 
- // } Driver Code Ends
+// } Driver Code Ends
 //User function Template for C++
 /*Structure of the node of the binary tree is as
 struct Node {
@@ -105,7 +105,7 @@ class Solution{
     //Function to store the zig zag order traversal of tree in a list.
     vector <int> zigZagTraversal(Node* root)
     {
-        vector<int> res;
+    	vector<int> res;
         bool flag=false;
         queue<Node*> q;
         q.push(root);
@@ -137,7 +137,7 @@ class Solution{
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 /* Driver program to test size function*/
 
@@ -166,4 +166,5 @@ int main() {
     }
     return 0;
 }
-  // } Driver Code Ends
+
+// } Driver Code Ends
