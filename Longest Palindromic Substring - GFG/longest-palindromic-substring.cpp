@@ -19,13 +19,11 @@ public:
         for(int i=0; i<n; i++)
            t[i][i]=true;
            
-        for(int gap=0; gap<n; gap++)
+        for(int gap=1; gap<n; gap++)
         {
             for(int i=0, j=gap; j<n; i++, j++)
             {
-                if(gap==0)
-                  t[i][j]==1;
-                else if(gap==1)
+                if(gap==1)
                   t[i][j]=(str[i]==str[j]);
                 else
                 {
