@@ -18,40 +18,30 @@ public:
         
         for(int i=0; i<n; i++)
            t[i][i]=true;
-        for(int i=0; i<n-1; i++)
+           
+        for(int gap=0; gap<n; gap++)
         {
-            if(str[i]==str[i+1])
+            for(int i=0, j=gap; j<n; i++, j++)
             {
-                t[i][i+1]=true;
-                if(maxLen==1)
+                if(gap==0)
+                  t[i][j]==1;
+                else if(gap==1)
+                  t[i][j]=(str[i]==str[j]);
+                else
                 {
-                    maxLen=2;
+                    if(str[i]==str[j]&&t[i+1][j-1])
+                        t[i][j]=1;
+                }
+                
+                if(t[i][j]&&maxLen<gap+1)
+                {
+                    maxLen=gap+1;
                     start=i;
                 }
             }
         }
-        for(int k=3; k<=n; k++)
-        {
-            for(int i=0; i<n-k+1; i++)
-            {
-                int j=i+k-1;
-                if(t[i+1][j-1]&&str[i]==str[j])
-                {
-                    t[i][j]=true;
-                    if(k>maxLen)
-                    {
-                        maxLen=k;
-                        start=i;
-                    }
-                }
-            }
-        }
         
-        string res="";
-        for(int k=start; k<start+maxLen; k++)
-           res+=str[k];
-           
-        return res;   
+        return str.substr(start, maxLen);
     }
 };
 
