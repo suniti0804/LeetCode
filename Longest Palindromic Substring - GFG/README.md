@@ -1,7 +1,6 @@
 # Longest Palindromic Substring
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a string S, find the longest palindromic substring in S.<strong> Substring of string S:</strong></span><span style="font-size:18px"> S[ i . . . . j ]&nbsp;where 0&nbsp;≤ i&nbsp;≤ j &lt; len(S)<strong>. Palindrome string:</strong></span><span style="font-size:18px"> A string which reads the same backwards. More formally, S is palindrome if reverse(S) = S.</span><span style="font-size:18px"><strong> Incase of conflict</strong>, return the substring which occurs first ( with the least starting index ).</span></p>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string S, find the longest palindromic substring in S.<strong> Substring of string S:</strong></span><span style="font-size:18px"> S[ i . . . . j ]&nbsp;where 0&nbsp;≤ i&nbsp;≤ j &lt; len(S)<strong>. Palindrome string:</strong></span><span style="font-size:18px"> A string which reads the same backwards. More formally, S is palindrome if reverse(S) = S.</span><span style="font-size:18px"><strong> Incase of conflict</strong>, return the substring which occurs first ( with the least starting index ).</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -25,5 +24,4 @@ You don't need to read input or print anything. Your task is to complete the fun
 <p><br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1&nbsp;≤ |S| ≤ 10<sup>4</sup></span></p>
- <p></p>
-            </div>
+</div>
