@@ -1,7 +1,6 @@
 # Overlapping Intervals
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a collection of Intervals, the task is to merge all of the overlapping Intervals.</span></p>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a collection of Intervals, the task is to merge all of the overlapping Intervals.</span></p>
 
 <p><strong><span style="font-size:18px">Example 1:</span></strong></p>
 
@@ -30,5 +29,4 @@ Complete the function<strong> overlappedInterval()</strong> that takes the list 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤ 100<br>
 0 ≤ x ≤ y ≤ 1000</span></p>
- <p></p>
-            </div>
+</div>
