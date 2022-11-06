@@ -1,7 +1,6 @@
 # Next Greater Element
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array <strong>arr[ ]</strong> of size <strong>N</strong> having distinct elements, the&nbsp;task is to find the next greater element for each element of the array in order of their appearance in the array.<br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array <strong>arr[ ]</strong> of size <strong>N</strong> having&nbsp;elements, the&nbsp;task is to find the next greater element for each element of the array in order of their appearance in the array.<br>
 Next greater element of an element in the array is the nearest element on the right which is greater than the current element.<br>
 If there does not exist next greater of current element, then next greater element for current element is -1. For example, next greater of the last element is always -1.</span></p>
 
@@ -39,5 +38,4 @@ This is a <strong>function </strong>problem. You only need to complete the funct
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤&nbsp;10<sup>6</sup><br>
 1 ≤&nbsp;A<sub>i</sub> ≤&nbsp;10<sup>18</sup></span></p>
- <p></p>
-            </div>
+</div>
