@@ -1,7 +1,6 @@
 # Permutations of a given string
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a string S. The task is to print all permutations of a given string in lexicographically sorted order.</span></p>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string S. The task is to print all unique permutations of the&nbsp;given string in lexicographically sorted order.</span></p>
 
 <p>&nbsp;</p>
 
@@ -45,5 +44,4 @@ You don't need to read input or print anything. Your task is to complete the fun
 &nbsp;</p>
 
 <p>&nbsp;</p>
- <p></p>
-            </div>
+</div>
