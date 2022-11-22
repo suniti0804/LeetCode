@@ -1,12 +1,11 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution {
   public:
     // Function to find the number of islands.
-    
     void dfs(vector<vector<char>>& grid, int i, int j)
     {
         int n=grid.size();
@@ -48,7 +47,7 @@ class Solution {
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 int main() {
     int tc;
     cin >> tc;
@@ -66,4 +65,5 @@ int main() {
         cout << ans << '\n';
     }
     return 0;
-}  // } Driver Code Ends
+}
+// } Driver Code Ends
