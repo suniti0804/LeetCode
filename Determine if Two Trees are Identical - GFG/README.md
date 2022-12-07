@@ -1,7 +1,6 @@
 # Determine if Two Trees are Identical
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given two binary trees, the task is to find if both of them are identical or not.&nbsp; </span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given two binary trees, the task is to find if both of them are identical or not.&nbsp; </span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 2:</strong></span></p>
@@ -40,5 +39,4 @@ Since this is a functional problem you don't have to worry about input, you just
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 &lt;= Number of nodes &lt;= 10<sup>5</sup><br>
 1 &lt;=Data of a node &lt;= 10<sup>5</sup></span></p>
- <p></p>
-            </div>
+</div>
