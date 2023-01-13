@@ -11,7 +11,7 @@ using namespace std;
 class Solution {
   public:
   
-   int countSubsets(vector<int>& nums, int n, int M)
+    int countSubsets(vector<int>& nums, int n, int M)
     {
         int t[n+1][M+1];
 
