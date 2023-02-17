@@ -1,7 +1,6 @@
 # Longest Arithmetic Progression
-##  Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an&nbsp;array called <strong>A[]</strong> of sorted integers having no duplicates, find the length of the&nbsp;<strong>L</strong>ongest <strong>A</strong>rithmetic&nbsp;<strong>P</strong>rogression (LLAP) in it.</span></p>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an&nbsp;array called <strong>A[]</strong> of sorted integers having no duplicates, find the length of the&nbsp;<strong>L</strong>ongest <strong>A</strong>rithmetic&nbsp;<strong>P</strong>rogression (LLAP) in it.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -32,5 +31,4 @@ You don't need to read input or print anything. Your task is to complete the fun
 <strong>Constraints:</strong><br>
 1 ≤ N ≤ 1000<br>
 1 ≤ set[i] ≤ 10<sup>4</sup></span></p>
- <p></p>
-            </div>
+</div>
